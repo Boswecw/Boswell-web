@@ -1,38 +1,73 @@
 import js from '@eslint/js'
 import globals from 'globals'
+import react from 'eslint-plugin-react'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
-import { defineConfig, globalIgnores } from 'eslint/config'
 
-export default defineConfig([
-  globalIgnores(['dist']),
+export default [
+  { 
+    ignores: ['dist', 'build', 'node_modules', '*.config.js'] 
+  },
   {
     files: ['**/*.{js,jsx}'],
-    extends: [
-      js.configs.recommended,
-      reactHooks.configs['recommended-latest'],
-      reactRefresh.configs.vite,
-    ],
     languageOptions: {
       ecmaVersion: 2020,
-      globals: globals.browser,
+      globals: {
+        ...globals.browser,
+        import: 'readonly',
+      },
       parserOptions: {
         ecmaVersion: 'latest',
         ecmaFeatures: { jsx: true },
         sourceType: 'module',
       },
     },
+    plugins: {
+      react,
+      'react-hooks': reactHooks,
+      'react-refresh': reactRefresh,
+    },
     rules: {
-      // Fix for motion import - allow unused vars that are actually used in JSX
-      'no-unused-vars': ['error', { 
-        varsIgnorePattern: '^[A-Z_]',
-        argsIgnorePattern: '^_',
-        ignoreRestSiblings: true,
-        // This helps with imports like motion that are used in JSX
-        caughtErrorsIgnorePattern: '^_'
+      // Base rules
+      ...js.configs.recommended.rules,
+      
+      // React rules
+      ...react.configs.recommended.rules,
+      ...reactHooks.configs.recommended.rules,
+      
+      // React Refresh
+      'react-refresh/only-export-components': [
+        'warn',
+        { allowConstantExport: true },
+      ],
+
+      // Custom rules
+      'no-unused-vars': [
+        'error', 
+        { 
+          varsIgnorePattern: '^React$|^_',
+          argsIgnorePattern: '^_',
+          ignoreRestSiblings: true,
+        }
+      ],
+      
+      // React specific customizations
+      'react/react-in-jsx-scope': 'off', // Not needed in React 17+
+      'react/prop-types': 'off', // Using TypeScript or modern React patterns
+      'react/no-unescaped-entities': ['error', {
+        'forbid': ['>', '"', '}'] // Allow apostrophes
       }],
-      // Allow unused vars for React imports and motion-like patterns
-      'react/jsx-uses-vars': 'error',
+      
+      // General rules
+      'no-console': 'warn',
+      'no-debugger': 'warn',
+      'prefer-const': 'error',
+      'jsx-quotes': ['error', 'prefer-double'],
+    },
+    settings: {
+      react: {
+        version: 'detect',
+      },
     },
   },
-]);
+];

@@ -3,59 +3,72 @@
 @tailwind utilities;
 
 @layer base {
-  /* Modern CSS reset */
+  /* Enhanced CSS reset that works well with Tailwind */
   *,
   *::before,
   *::after {
     box-sizing: border-box;
   }
   
-  * {
-    margin: 0;
-    padding: 0;
-  }
-  
   html {
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
     line-height: 1.5;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
   
   body {
-    font-family: inherit;
-    line-height: inherit;
     margin: 0;
-    min-height: 100vh;
+    line-height: inherit;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
   
-  a {
-    color: inherit;
-    text-decoration: none;
-    transition: all 0.2s ease-in-out;
-  }
-  
+  /* Remove default button styles while preserving accessibility */
   button {
+    background-color: transparent;
+    background-image: none;
+    border: 0;
+    cursor: pointer;
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
     margin: 0;
-    cursor: pointer;
-    border: none;
-    background: none;
-    transition: all 0.2s ease-in-out;
+    padding: 0;
   }
   
+  /* Ensure images are responsive by default */
   img {
     max-width: 100%;
     height: auto;
-    display: block;
   }
   
-  ul, ol {
-    list-style: none;
+  /* Remove default link styling but keep accessibility */
+  a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+}
+
+@layer components {
+  /* Custom component styles can go here */
+  .btn-primary {
+    @apply bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors;
+  }
+  
+  .btn-outline {
+    @apply border border-blue-400 text-blue-400 px-4 py-2 rounded-md hover:bg-blue-400 hover:text-gray-900 transition-colors;
+  }
+}
+
+@layer utilities {
+  /* Custom utility classes can go here */
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .backdrop-blur-xs {
+    backdrop-filter: blur(2px);
   }
 }

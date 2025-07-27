@@ -1,6 +1,6 @@
 import React from "react";
-// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 
@@ -85,13 +85,13 @@ export default function LandingPage() {
             className="w-full sm:w-auto"
           >
             <Button asChild className="text-base md:text-lg px-8 py-4 w-full sm:w-auto bg-blue-600 hover:bg-blue-700 shadow-lg">
-              <a 
-                href="mailto:charlesboswell@boswellwebdevelopment.com"
+              <Link 
+                to="/contact"
                 className="inline-flex items-center gap-2"
               >
                 <FaEnvelope className="text-sm" />
                 Hire Me
-              </a>
+              </Link>
             </Button>
           </motion.div>
           
@@ -101,9 +101,9 @@ export default function LandingPage() {
             className="w-full sm:w-auto"
           >
             <Button variant="outline" asChild className="text-base md:text-lg px-8 py-4 w-full sm:w-auto border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-gray-900 shadow-lg">
-              <a href="/portfolio">
+              <Link to="/portfolio">
                 View Portfolio
-              </a>
+              </Link>
             </Button>
           </motion.div>
           
