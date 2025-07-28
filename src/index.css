@@ -9,14 +9,16 @@
   *::after {
     box-sizing: border-box;
   }
-  
+
   html {
     line-height: 1.5;
-    -webkit-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%; /* Safari & iOS fix */
     text-size-adjust: 100%;
-    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+      "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
-  
+
   body {
     margin: 0;
     line-height: inherit;
@@ -24,8 +26,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  
-  /* Remove default button styles while preserving accessibility */
+
   button {
     background-color: transparent;
     background-image: none;
@@ -37,14 +38,12 @@
     margin: 0;
     padding: 0;
   }
-  
-  /* Ensure images are responsive by default */
+
   img {
     max-width: 100%;
     height: auto;
   }
-  
-  /* Remove default link styling but keep accessibility */
+
   a {
     color: inherit;
     text-decoration: inherit;
@@ -52,23 +51,22 @@
 }
 
 @layer components {
-  /* Custom component styles can go here */
   .btn-primary {
     @apply bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors;
   }
-  
+
   .btn-outline {
     @apply border border-blue-400 text-blue-400 px-4 py-2 rounded-md hover:bg-blue-400 hover:text-gray-900 transition-colors;
   }
 }
 
 @layer utilities {
-  /* Custom utility classes can go here */
   .text-shadow {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-  
+
   .backdrop-blur-xs {
+    -webkit-backdrop-filter: blur(2px); /* Safari fix */
     backdrop-filter: blur(2px);
   }
 }

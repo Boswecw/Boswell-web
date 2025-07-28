@@ -127,3 +127,6 @@ build/
 
 # OS generated files
 Thumbs.db
+
+.env.production
+# Ignore specific files in the src directory
