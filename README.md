@@ -1,6 +1,10 @@
 # Boswell Web Development Solutions LLC
 
+🔗 [Live Site](https://boswellwebdevelopment.com)
+
 A modern, responsive portfolio website built with React and Vite, showcasing web development projects and services.
+
+![MIT License](https://img.shields.io/badge/license-MIT-blue)
 
 ## Features
 
@@ -47,7 +51,8 @@ A modern, responsive portfolio website built with React and Vite, showcasing web
    ```bash
    cp .env.example .env
    ```
-   Edit `.env` with your configuration:
+
+   Then update `.env`:
    ```env
    VITE_GITHUB_USERNAME=your-github-username
    VITE_CONTACT_EMAIL=your-email@example.com
@@ -56,7 +61,7 @@ A modern, responsive portfolio website built with React and Vite, showcasing web
    ```
 
 4. Add your resume:
-   Place your `resume.html` file in the `public` folder.
+   Place `resume.html` inside the `public` folder.
 
 5. Start the development server:
    ```bash
@@ -67,10 +72,10 @@ A modern, responsive portfolio website built with React and Vite, showcasing web
 
 ## Available Scripts
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build locally
-- `npm run lint` - Run ESLint
+- `npm run dev` – Start development server
+- `npm run build` – Build for production
+- `npm run preview` – Preview production build locally
+- `npm run lint` – Run ESLint
 
 ## Project Structure
 
@@ -95,20 +100,17 @@ src/
 
 ### HTML Resume
 
-The portfolio includes an interactive HTML resume that showcases web development skills while presenting professional information. The resume features:
+The portfolio includes an interactive HTML resume with:
 
-- **Modern styling** with CSS gradients and animations
-- **Responsive design** that works on all devices  
-- **Print-friendly** CSS for hard copy needs
-- **Interactive elements** with hover effects
-- **Professional typography** using Google Fonts
-- **Direct navigation** back to the main portfolio
-
-This approach demonstrates technical skills while serving as a functional resume.
+- Responsive design
+- Print-friendly CSS
+- Animated sections
+- Google Fonts and professional styling
+- Direct nav back to homepage
 
 ### GitHub Integration
 
-The portfolio page automatically fetches and displays your GitHub repositories. Configure your GitHub username in the `.env` file:
+Automatically fetches GitHub repos by setting this in `.env`:
 
 ```env
 VITE_GITHUB_USERNAME=your-github-username
@@ -116,20 +118,17 @@ VITE_GITHUB_USERNAME=your-github-username
 
 ### Contact Information
 
-Update your contact information in the `.env` file:
+Update in `.env`:
 
 ```env
 VITE_CONTACT_EMAIL=your-email@example.com
 VITE_LINKEDIN_URL=https://www.linkedin.com/in/your-profile
 ```
 
-### Company Information
+### Company Branding
 
-The landing page displays company information. You can customize:
-
-- Company logo: Update the image URL in `LandingPage.jsx`
-- Company description: Modify the text in `LandingPage.jsx`
-- Certification badge: Update the image URL in `LandingPage.jsx`
+Customize the landing page:
+- Logo, description, certifications via `LandingPage.jsx`
 
 ## Deployment
 
@@ -139,47 +138,43 @@ The landing page displays company information. You can customize:
 npm run build
 ```
 
-The `dist` folder will contain the production-ready files.
+### Deploy to Netlify
+
+1. Build: `npm run build`
+2. Drop `dist/` folder on [Netlify](https://app.netlify.com/drop) or connect Git repo.
 
 ### Deploy to Vercel
 
-1. Install Vercel CLI: `npm i -g vercel`
+1. Install CLI: `npm i -g vercel`
 2. Run: `vercel`
-3. Follow the prompts
-
-### Deploy to Netlify
-
-1. Build the project: `npm run build`
-2. Drag and drop the `dist` folder to [Netlify](https://app.netlify.com/drop)
 
 ## Environment Variables
 
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `VITE_GITHUB_USERNAME` | Your GitHub username for portfolio display | Yes |
-| `VITE_CONTACT_EMAIL` | Your contact email address | Yes |
-| `VITE_LINKEDIN_URL` | Your LinkedIn profile URL | No |
-| `VITE_GITHUB_URL` | Your GitHub profile URL | No |
-| `VITE_APP_NAME` | Application name | No |
-| `VITE_APP_DESCRIPTION` | Application description | No |
+| Variable               | Description                                 | Required |
+|------------------------|---------------------------------------------|----------|
+| VITE_GITHUB_USERNAME   | Your GitHub username for portfolio display  | Yes      |
+| VITE_CONTACT_EMAIL     | Your contact email address                  | Yes      |
+| VITE_LINKEDIN_URL      | Your LinkedIn profile URL                   | No       |
+| VITE_GITHUB_URL        | Your GitHub profile URL                     | No       |
+| VITE_APP_NAME          | Application name                            | No       |
+| VITE_APP_DESCRIPTION   | Application description                     | No       |
 
 ## Contributing
 
 1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/amazing-feature`
+2. Create a new branch: `git checkout -b feature/amazing-feature`
 3. Commit your changes: `git commit -m 'Add amazing feature'`
-4. Push to the branch: `git push origin feature/amazing-feature`
+4. Push the branch: `git push origin feature/amazing-feature`
 5. Open a Pull Request
 
 ## License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](../../../../Downloads/LICENSE).
 
 ## Contact
 
-Charles Boswell - [charlesboswell@boswellwebdevelopment.com](mailto:charlesboswell@boswellwebdevelopment.com)
-
-Project Link: [https://github.com/Boswecw/boswell-web](https://github.com/Boswecw/boswell-web)
+Charles Boswell – [charlesboswell@boswellwebdevelopment.com](mailto:charlesboswell@boswellwebdevelopment.com)  
+GitHub: [https://github.com/Boswecw](https://github.com/Boswecw)
 
 ---
 
