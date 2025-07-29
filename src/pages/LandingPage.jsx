@@ -169,7 +169,7 @@ export default function LandingPage() {
               className="flex justify-center gap-6 mb-8"
             >
               <motion.a
-                href="https://www.linkedin.com/in/charles-boswell-0057b1340"
+                href="www.linkedin.com/in/kywebdevboswell"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackSocialClick('LinkedIn')}
