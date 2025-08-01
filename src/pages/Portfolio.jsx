@@ -60,7 +60,18 @@ export default function Portfolio() {
         type: 'Live Demo',
         featured: true,
         buildTime: '1 day'
-      }
+      },
+{
+  id: 'bloom-petal-demo',
+  name: 'Bloom & Petal Flower Shop',
+  description: 'Premium flower shop website featuring e-commerce functionality, responsive design, and customer testimonials. Built to showcase capabilities for retail and service businesses in Kentucky.',
+  technologies: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design', 'SEO Optimized', 'Accessibility'],
+  demoUrl: '/public/flowershop-demo.html',
+  image: 'https://images.unsplash.com/photo-1648742229043-61bdedf3f4e2?q=80&w=1175&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  type: 'Live Demo',
+  featured: true,
+  buildTime: '1 day'
+},
     ];
     
   return (
