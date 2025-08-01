@@ -34,20 +34,35 @@ export default function Portfolio() {
   }, []);
 
   // Featured demo projects
-  const featuredProjects = [
-    {
-      id: 'restaurant-demo',
-      name: 'Kentucky Bistro Restaurant',
-      description: 'Full-featured restaurant website with online reservations, menu display, and mobile-responsive design. Built to showcase modern web development capabilities for local Kentucky businesses.',
-      technologies: ['React', 'Tailwind CSS', 'Responsive Design', 'Accessibility'],
-      demoUrl: '/restaurant-demo.html',
-      image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&w=600&q=80',
-      type: 'Live Demo',
-      featured: true,
-      buildTime: '2 days'
-    }
-  ];
-
+    const featuredProjects = [
+      {
+        id: 'restaurant-demo',
+        name: 'Kentucky Bistro Restaurant',
+        description:
+          'Full-featured restaurant website with online reservations, menu display, and mobile-responsive design. Built to showcase modern web development capabilities for local Kentucky businesses.',
+        technologies: ['React', 'Tailwind CSS', 'Responsive Design', 'Accessibility'],
+        demoUrl: '/restaurant-demo.html',
+        image:
+          'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&w=600&q=80',
+        type: 'Live Demo',
+        featured: true,
+        buildTime: '2 days'
+      },
+      {
+        id: 'boutique-demo',
+        name: 'The Local Nest Boutique',
+        description:
+          'Mock-up retail website for a handmade goods boutique. Semantic HTML, accessible forms, Firebase-hosted hero, and a clean, modern layout. Ideal for local and artisan shops.',
+        technologies: ['HTML5', 'ARIA Accessibility', 'Semantic Layout', 'Responsive Design'],
+        demoUrl: '/boutique-demo.html',
+        image:
+          'https://firebasestorage.googleapis.com/v0/b/endless-fire-467204-n2.firebasestorage.app/o/hero-image.webp?alt=media&token=bc3106e4-1f08-4af8-9f73-30c4d8cc4dac',
+        type: 'Live Demo',
+        featured: true,
+        buildTime: '1 day'
+      }
+    ];
+    
   return (
     <>
       <SEOHead
