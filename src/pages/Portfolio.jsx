@@ -54,7 +54,7 @@ export default function Portfolio() {
       description:
         'Mock-up retail website for a handmade goods boutique. Semantic HTML, accessible forms, Firebase-hosted hero, and a clean, modern layout. Ideal for local and artisan shops.',
       technologies: ['HTML5', 'ARIA Accessibility', 'Semantic Layout', 'Responsive Design'],
-      demoUrl: '/boutique-demo.html', // ✅ make sure this file exists in /public
+      demoUrl: '/public/boutique-demo.html', // ✅ make sure this file exists in /public
       image:
         'https://firebasestorage.googleapis.com/v0/b/endless-fire-467204-n2.firebasestorage.app/o/hero-image.webp?alt=media&token=bc3106e4-1f08-4af8-9f73-30c4d8cc4dac',
       type: 'Live Demo',
@@ -66,7 +66,7 @@ export default function Portfolio() {
       name: 'Bloom & Petal Flower Shop',
       description: 'Premium flower shop website featuring e-commerce functionality, responsive design, and customer testimonials. Built to showcase capabilities for retail and service businesses in Kentucky.',
       technologies: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design', 'SEO Optimized', 'Accessibility'],
-      demoUrl: '/flowershop-demo.html', // ✅ fixed path
+      demoUrl: '/public/flowershop-demo.html', // ✅ fixed path
       image: 'https://images.unsplash.com/photo-1648742229043-61bdedf3f4e2?q=80&w=1175&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       type: 'Live Demo',
       featured: true,
