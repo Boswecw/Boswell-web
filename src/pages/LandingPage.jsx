@@ -8,6 +8,15 @@ import {
   trackResumeView,
   trackSocialClick,
 } from "@/utils/analytics";
+import OptimizedImage from "@/components/OptimizedImage";
+
+<OptimizedImage
+src="https://firebasestorage.googleapis.com/v0/b/endless-fire-467204-n2.firebasestorage.app/o/75C2B6B4-7539-4C70-BB2E-D97E39E038D5.JPG?alt=media&token=e0c77b96-1841-43a0-8ee9-43e5ef2cb344   "
+alt="Boswell Web Development Solutions LLC Logo"
+className="mx-auto w-80 h-auto rounded-xl shadow-2xl transform hover:scale-105 transition-transform duration-300"
+loading="eager"
+/>
+
 
 export default function LandingPage() {
   // Animation variants for better organization

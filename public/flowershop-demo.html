@@ -1,0 +1,1717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bloom & Petal flower shop demo - Showcasing premium web development by Boswell Web Development. Professional websites for Kentucky businesses.">
+    <meta name="keywords" content="web development demo, flower shop website, Kentucky web developer, Boswell Web Development, professional website design">
+    <meta name="author" content="Boswell Web Development - Charles Boswell">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Bloom & Petal Demo | Professional Web Development">
+    <meta property="og:description" content="Premium flower shop website demo showcasing modern web development capabilities by Boswell Web Development.">
+    <meta property="og:image" content="https://placehold.co/1200x630/orange/white?text=Bloom+%26+Petal+Demo">
+    <meta property="og:url" content="https://boswellwebdevelopment.com/bloom-petal-demo">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bloom & Petal Demo | Boswell Web Development">
+    <meta name="twitter:description" content="Professional flower shop website demo showcasing modern web development capabilities.">
+    <meta name="twitter:image" content="https://placehold.co/1200x630/orange/white?text=Bloom+%26+Petal+Demo">
+    
+    <title>Bloom & Petal - Professional Website Demo | Boswell Web Development</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" as="style">
+    <link rel="preload" href="https://placehold.co/600x400" as="image">
+    
+    <!-- Font optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Demo Banner Styles */
+        .demo-banner {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%);
+            color: white;
+            padding: 12px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 2000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-bottom: 2px solid #60a5fa;
+        }
+        
+        .demo-banner-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .demo-badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .demo-text {
+            font-size: 15px;
+            font-weight: 500;
+        }
+        
+        .demo-cta {
+            background: #dc2626;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .demo-cta:hover {
+            background: #b91c1c;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
+        }
+        
+        .back-button {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-1px);
+        }
+        
+        /* Adjust body to account for demo banner */
+        body {
+            padding-top: 60px;
+        }
+        
+        /* CSS Reset and Base Styles */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Custom Properties for Design System */
+        :root {
+            --primary-color: #e67e22;
+            --primary-dark: #d35400;
+            --secondary-color: #2c3e50;
+            --accent-color: #f1c40f;
+            --light-color: #ecf0f1;
+            --dark-color: #34495e;
+            --success-color: #27ae60;
+            --error-color: #e74c3c;
+            --warning-color: #f39c12;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --font-primary: 'Playfair Display', serif;
+            --font-secondary: 'Poppins', sans-serif;
+            --font-size-xs: 0.75rem;
+            --font-size-sm: 0.875rem;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-2xl: 1.5rem;
+            --font-size-3xl: 1.875rem;
+            --font-size-4xl: 2.25rem;
+            --font-size-5xl: 3rem;
+            --line-height-tight: 1.25;
+            --line-height-normal: 1.5;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-2xl: 4rem;
+            --container-width: 1200px;
+            --header-height: 70px;
+        }
+        
+        /* Base Typography */
+        body {
+            font-family: var(--font-secondary);
+            font-size: var(--font-size-base);
+            line-height: var(--line-height-normal);
+            color: var(--dark-color);
+            background-color: var(--light-color);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-primary);
+            font-weight: 700;
+            line-height: var(--line-height-tight);
+            margin-bottom: var(--spacing-sm);
+            color: var(--secondary-color);
+        }
+        
+        h1 {
+            font-size: var(--font-size-4xl);
+        }
+        
+        h2 {
+            font-size: var(--font-size-3xl);
+        }
+        
+        h3 {
+            font-size: var(--font-size-2xl);
+        }
+        
+        p {
+            margin-bottom: var(--spacing-md);
+            line-height: var(--line-height-normal);
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Layout */
+        .container {
+            width: 100%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+        
+        .grid {
+            display: grid;
+            gap: var(--spacing-md);
+        }
+        
+        .grid-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .grid-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        
+        .grid-4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        
+        .flex {
+            display: flex;
+        }
+        
+        .flex-column {
+            flex-direction: column;
+        }
+        
+        .flex-align-center {
+            align-items: center;
+        }
+        
+        .flex-justify-center {
+            justify-content: center;
+        }
+        
+        .flex-space-between {
+            justify-content: space-between;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 60px; /* Adjusted for demo banner */
+            z-index: 1000;
+            height: var(--header-height);
+        }
+        
+        .header-container {
+            height: 100%;
+        }
+        
+        .navbar {
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: var(--font-primary);
+            font-size: var(--font-size-2xl);
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-lg);
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: var(--spacing-sm) 0;
+        }
+        
+        .nav-link:hover,
+        .nav-link:focus {
+            color: var(--primary-color);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover::after,
+        .nav-link:focus::after {
+            width: 100%;
+        }
+        
+        .cta-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+            font-size: var(--font-size-sm);
+        }
+        
+        .cta-button:hover,
+        .cta-button:focus {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://placehold.co/1920x800/ff6b35/white?text=Flowers') center/cover no-repeat;
+            color: white;
+            padding: var(--spacing-2xl) 0;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            color: white;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .hero p {
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-lg);
+            opacity: 0.9;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: var(--spacing-2xl) 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .section-title h2 {
+            position: relative;
+            display: inline-block;
+            padding-bottom: var(--spacing-sm);
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: var(--font-size-4xl);
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        /* Products Section */
+        .products {
+            padding: var(--spacing-2xl) 0;
+            background-color: var(--light-color);
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: var(--spacing-md);
+        }
+        
+        .product-title {
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .product-price {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .add-to-cart {
+            width: 100%;
+            padding: var(--spacing-sm);
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        
+        .add-to-cart:hover,
+        .add-to-cart:focus {
+            background-color: var(--primary-dark);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: var(--spacing-2xl) 0;
+            background-color: white;
+        }
+        
+        .testimonial-card {
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            box-shadow: var(--box-shadow);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 5rem;
+            color: rgba(0, 0, 0, 0.1);
+            font-family: var(--font-primary);
+            line-height: 1;
+        }
+        
+        .customer-info {
+            display: flex;
+            align-items: center;
+            margin-top: var(--spacing-md);
+        }
+        
+        .customer-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: var(--spacing-sm);
+        }
+        
+        .customer-name {
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+        
+        .customer-location {
+            font-size: var(--font-size-sm);
+            color: var(--dark-color);
+            opacity: 0.7;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: var(--spacing-2xl) 0;
+            background-color: var(--light-color);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-md);
+        }
+        
+        .contact-icon {
+            color: var(--primary-color);
+            font-size: var(--font-size-xl);
+            margin-top: 3px;
+        }
+        
+        .contact-form {
+            background-color: white;
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            font-weight: 500;
+            color: var(--secondary-color);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: var(--spacing-sm);
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-family: var(--font-secondary);
+            font-size: var(--font-size-base);
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-size: var(--font-size-base);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .submit-button:hover,
+        .submit-button:focus {
+            background-color: var(--primary-dark);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-lg);
+        }
+        
+        .footer-column h3 {
+            color: white;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-link {
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .footer-link a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-link a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: var(--spacing-xl);
+            margin-top: var(--spacing-xl);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: var(--font-size-sm);
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Demo Attribution - POSITIONED AFTER FOOTER */
+        .demo-attribution {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: var(--spacing-xl) 0;
+            text-align: center;
+        }
+        
+        .demo-attribution h4 {
+            color: white;
+            margin-bottom: var(--spacing-sm);
+            font-size: var(--font-size-xl);
+        }
+        
+        .demo-attribution p {
+            margin-bottom: var(--spacing-md);
+            font-size: var(--font-size-base);
+            opacity: 0.9;
+        }
+        
+        .demo-cta-buttons {
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .demo-cta-primary {
+            background: #dc2626;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: var(--font-size-base);
+        }
+        
+        .demo-cta-primary:hover {
+            background: #b91c1c;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+        }
+        
+        .demo-cta-secondary {
+            background: transparent;
+            color: white;
+            padding: 12px 24px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: var(--font-size-base);
+        }
+        
+        .demo-cta-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: translateY(-2px);
+        }
+        
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+        
+        .text-primary {
+            color: var(--primary-color);
+        }
+        
+        .bg-primary {
+            background-color: var(--primary-color);
+        }
+        
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        .visually-hidden {
+            position: absolute !important;
+            height: 1px !important;
+            width: 1px !important;
+            overflow: hidden !important;
+            clip: rect(1px, 1px, 1px, 1px) !important;
+            white-space: nowrap !important;
+            border: 0 !important;
+        }
+        
+        /* Loading States */
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+        
+        .loading::after {
+            content: 'Loading...';
+            font-style: italic;
+            color: var(--primary-color);
+        }
+        
+        /* Error States */
+        .error {
+            border: 2px solid var(--error-color) !important;
+        }
+        
+        .error-message {
+            color: var(--error-color);
+            font-size: var(--font-size-sm);
+            margin-top: var(--spacing-xs);
+        }
+        
+        /* Success States */
+        .success {
+            border: 2px solid var(--success-color);
+        }
+        
+        .success-message {
+            color: var(--success-color);
+            font-size: var(--font-size-sm);
+            margin-top: var(--spacing-xs);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            :root {
+                --container-width: 900px;
+            }
+            
+            .grid-4 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            :root {
+                --container-width: 700px;
+                --header-height: 60px;
+            }
+            
+            .demo-banner-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .demo-text {
+                font-size: 14px;
+            }
+            
+            body {
+                padding-top: 100px; /* Adjusted for larger mobile banner */
+            }
+            
+            h1 {
+                font-size: var(--font-size-3xl);
+            }
+            
+            h2 {
+                font-size: var(--font-size-2xl);
+            }
+            
+            .hero {
+                padding: var(--spacing-xl) 0;
+            }
+            
+            .hero-content {
+                padding: 0 var(--spacing-md);
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: white;
+                flex-direction: column;
+                padding: var(--spacing-md);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .mobile-menu-button {
+                display: block;
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                color: var(--dark-color);
+                cursor: pointer;
+            }
+            
+            .demo-cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            :root {
+                --container-width: 100%;
+                --spacing-md: 1rem;
+                --spacing-lg: 1.2rem;
+                --spacing-xl: 1.5rem;
+                --spacing-2xl: 2rem;
+            }
+            
+            .container {
+                padding: 0 var(--spacing-sm);
+            }
+            
+            .grid {
+                gap: var(--spacing-sm);
+            }
+            
+            .grid-3,
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-form {
+                padding: var(--spacing-md);
+            }
+        }
+        
+        /* Print Styles */
+        @media print {
+            .demo-banner, .demo-attribution, header, footer, .no-print {
+                display: none !important;
+            }
+            
+            body {
+                background: white !important;
+                color: black !important;
+                padding-top: 0 !important;
+            }
+            
+            .container {
+                max-width: 100% !important;
+                padding: 0 !important;
+            }
+            
+            a {
+                text-decoration: none !important;
+                color: black !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Demo Banner -->
+    <div class="demo-banner">
+        <div class="demo-banner-content">
+            <div class="demo-badge">🌟 PORTFOLIO DEMO</div>
+            <div class="demo-text">Professional website showcase by Boswell Web Development</div>
+            <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+                <a href="/" class="back-button">← Back to Portfolio</a>
+                <a href="/contact" class="demo-cta">Get Your Website - 50% Off</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="sr-only">Skip to main content</a>
+    
+    <!-- Header with Navigation -->
+    <header id="header" role="banner">
+        <div class="container header-container">
+            <nav class="navbar" aria-label="Main Navigation">
+                <a href="#home" class="logo" aria-label="Bloom & Petal Home">
+                    Bloom <span>& Petal</span>
+                </a>
+                
+                <button class="mobile-menu-button" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
+                    <span class="bar">☰</span>
+                </button>
+                
+                <ul id="nav-menu" class="nav-menu" role="menu">
+                    <li role="none"><a href="#home" class="nav-link" role="menuitem">Home</a></li>
+                    <li role="none"><a href="#products" class="nav-link" role="menuitem">Products</a></li>
+                    <li role="none"><a href="#about" class="nav-link" role="menuitem">About</a></li>
+                    <li role="none"><a href="#testimonials" class="nav-link" role="menuitem">Testimonials</a></li>
+                    <li role="none"><a href="#contact" class="nav-link" role="menuitem">Contact</a></li>
+                    <li role="none"><a href="#cart" class="nav-link" role="menuitem" aria-label="Shopping cart">Cart (0)</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Beautiful Flowers for Every Occasion</h1>
+                    <p>Hand-crafted floral arrangements delivered with care. Fresh, seasonal blooms sourced from local growers.</p>
+                    <a href="#products" class="cta-button" aria-label="Shop our flower collection">Shop Now</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Why Choose Us</h2>
+                </div>
+                <div class="grid grid-3">
+                    <div class="feature-card" tabindex="0">
+                        <div class="feature-icon" aria-hidden="true">🌸</div>
+                        <h3>Fresh Daily</h3>
+                        <p>All our flowers are delivered fresh every morning from local growers, ensuring the highest quality and longevity.</p>
+                    </div>
+                    <div class="feature-card" tabindex="0">
+                        <div class="feature-icon" aria-hidden="true">🚚</div>
+                        <h3>Same Day Delivery</h3>
+                        <p>Order by 2 PM for same-day delivery in the metropolitan area. We deliver with care and precision.</p>
+                    </div>
+                    <div class="feature-card" tabindex="0">
+                        <div class="feature-icon" aria-hidden="true">🎨</div>
+                        <h3>Custom Arrangements</h3>
+                        <p>Our expert florists create unique, personalized arrangements for weddings, events, and special occasions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Products Section -->
+        <section id="products" class="products">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Popular Arrangements</h2>
+                </div>
+                <div class="grid grid-4">
+                    <!-- Product 1 -->
+                    <article class="product-card" itemscope itemtype="https://schema.org/Product">
+                        <div class="product-image">
+                            <img src="https://placehold.co/600x400/e67e22/white?text=Spring+Bouquet" 
+                                 alt="Spring Blossom Bouquet with tulips, daffodils, and hyacinths" 
+                                 itemprop="image"
+                                 loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title" itemprop="name">Spring Blossom</h3>
+                            <p itemprop="description">A vibrant mix of seasonal spring flowers including tulips, daffodils, and hyacinths.</p>
+                            <div class="product-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                                <span itemprop="priceCurrency" content="USD">$</span>
+                                <span itemprop="price">65.00</span>
+                            </div>
+                            <button class="add-to-cart" 
+                                    type="button" 
+                                    aria-label="Add Spring Blossom bouquet to cart"
+                                    onclick="addToCart('Spring Blossom', 65.00)">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </article>
+                    
+                    <!-- Product 2 -->
+                    <article class="product-card" itemscope itemtype="https://schema.org/Product">
+                        <div class="product-image">
+                            <img src="https://placehold.co/600x400/8e44ad/white?text=Romantic+Rose" 
+                                 alt="Romantic Rose Bouquet with red and white roses" 
+                                 itemprop="image"
+                                 loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title" itemprop="name">Romantic Rose</h3>
+                            <p itemprop="description">Classic arrangement of premium red and white roses, perfect for anniversaries and Valentine's Day.</p>
+                            <div class="product-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                                <span itemprop="priceCurrency" content="USD">$</span>
+                                <span itemprop="price">85.00</span>
+                            </div>
+                            <button class="add-to-cart" 
+                                    type="button" 
+                                    aria-label="Add Romantic Rose bouquet to cart"
+                                    onclick="addToCart('Romantic Rose', 85.00)">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </article>
+                    
+                    <!-- Product 3 -->
+                    <article class="product-card" itemscope itemtype="https://schema.org/Product">
+                        <div class="product-image">
+                            <img src="https://placehold.co/600x400/27ae60/white?text=Sunshine+Mix" 
+                                 alt="Sunshine Mix Bouquet with sunflowers, daisies, and yellow roses" 
+                                 itemprop="image"
+                                 loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title" itemprop="name">Sunshine Mix</h3>
+                            <p itemprop="description">Bright and cheerful arrangement featuring sunflowers, daisies, and yellow roses.</p>
+                            <div class="product-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                                <span itemprop="priceCurrency" content="USD">$</span>
+                                <span itemprop="price">72.00</span>
+                            </div>
+                            <button class="add-to-cart" 
+                                    type="button" 
+                                    aria-label="Add Sunshine Mix bouquet to cart"
+                                    onclick="addToCart('Sunshine Mix', 72.00)">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </article>
+                    
+                    <!-- Product 4 -->
+                    <article class="product-card" itemscope itemtype="https://schema.org/Product">
+                        <div class="product-image">
+                            <img src="https://placehold.co/600x400/3498db/white?text=Elegant+Orchid" 
+                                 alt="Elegant Orchid Arrangement with purple and white orchids" 
+                                 itemprop="image"
+                                 loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title" itemprop="name">Elegant Orchid</h3>
+                            <p itemprop="description">Sophisticated arrangement of premium purple and white orchids in a ceramic vase.</p>
+                            <div class="product-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                                <span itemprop="priceCurrency" content="USD">$</span>
+                                <span itemprop="price">95.00</span>
+                            </div>
+                            <button class="add-to-cart" 
+                                    type="button" 
+                                    aria-label="Add Elegant Orchid arrangement to cart"
+                                    onclick="addToCart('Elegant Orchid', 95.00)">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials">
+            <div class="container">
+                <div class="section-title">
+                    <h2>What Our Customers Say</h2>
+                </div>
+                <div class="grid grid-3">
+                    <div class="testimonial-card" itemscope itemtype="https://schema.org/Review">
+                        <blockquote itemprop="reviewBody">
+                            "The floral arrangement for my wedding was absolutely stunning. The attention to detail and quality of flowers exceeded our expectations. Everyone commented on how beautiful everything looked!"
+                        </blockquote>
+                        <div class="customer-info">
+                            <div class="customer-avatar">
+                                <img src="https://placehold.co/100/3498db/white?text=SJ" alt="Sarah Johnson" loading="lazy">
+                            </div>
+                            <div>
+                                <div class="customer-name" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                                    <span itemprop="name">Sarah Johnson</span>
+                                </div>
+                                <div class="customer-location">Bride, Wedding Flowers</div>
+                            </div>
+                        </div>
+                        <meta itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+                        <meta itemprop="ratingValue" content="5">
+                        <meta itemprop="bestRating" content="5">
+                    </div>
+                    
+                    <div class="testimonial-card" itemscope itemtype="https://schema.org/Review">
+                        <blockquote itemprop="reviewBody">
+                            "I ordered flowers for my mother's birthday, and she was absolutely thrilled. The delivery was right on time, and the bouquet was even more beautiful than the pictures. Will definitely order again!"
+                        </blockquote>
+                        <div class="customer-info">
+                            <div class="customer-avatar">
+                                <img src="https://placehold.co/100/e74c3c/white?text=MT" alt="Michael Thompson" loading="lazy">
+                            </div>
+                            <div>
+                                <div class="customer-name" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                                    <span itemprop="name">Michael Thompson</span>
+                                </div>
+                                <div class="customer-location">Regular Customer</div>
+                            </div>
+                        </div>
+                        <meta itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+                        <meta itemprop="ratingValue" content="5">
+                        <meta itemprop="bestRating" content="5">
+                    </div>
+                    
+                    <div class="testimonial-card" itemscope itemtype="https://schema.org/Review">
+                        <blockquote itemprop="reviewBody">
+                            "As an event planner, I need reliable florists who deliver consistent quality. Bloom & Petal has never let me down. Their custom arrangements always impress my clients, and their customer service is exceptional."
+                        </blockquote>
+                        <div class="customer-info">
+                            <div class="customer-avatar">
+                                <img src="https://placehold.co/100/2ecc71/white?text=EL" alt="Emily Lee" loading="lazy">
+                            </div>
+                            <div>
+                                <div class="customer-name" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                                    <span itemprop="name">Emily Lee</span>
+                                </div>
+                                <div class="customer-location">Event Planner</div>
+                            </div>
+                        </div>
+                        <meta itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+                        <meta itemprop="ratingValue" content="5">
+                        <meta itemprop="bestRating" content="5">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Contact Us</h2>
+                </div>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon" aria-hidden="true">📍</div>
+                            <div>
+                                <h3>Visit Our Shop</h3>
+                                <p>123 Petal Lane<br>Flower District<br>Springfield, ST 12345</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon" aria-hidden="true">📞</div>
+                            <div>
+                                <h3>Call Us</h3>
+                                <p><a href="tel:+15551234567">(555) 123-4567</a><br>Monday-Friday: 9AM-6PM<br>Saturday: 10AM-4PM</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon" aria-hidden="true">✉️</div>
+                            <div>
+                                <h3>Email Us</h3>
+                                <p><a href="mailto:info@bloomandpetal.com">info@bloomandpetal.com</a><br>We respond within 24 hours</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon" aria-hidden="true">🌸</div>
+                            <div>
+                                <h3>Follow Us</h3>
+                                <div class="social-links">
+                                    <a href="#" class="social-link" aria-label="Follow us on Facebook"><span>F</span></a>
+                                    <a href="#" class="social-link" aria-label="Follow us on Instagram"><span>I</span></a>
+                                    <a href="#" class="social-link" aria-label="Follow us on Pinterest"><span>P</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <form class="contact-form" id="contactForm" novalidate>
+                        <h3>Send Us a Message</h3>
+                        <div class="form-group">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" id="name" name="name" class="form-control" required aria-required="true">
+                            <div id="nameError" class="error-message" role="alert" aria-live="polite"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-control" required aria-required="true">
+                            <div id="emailError" class="error-message" role="alert" aria-live="polite"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number (Optional)</label>
+                            <input type="tel" id="phone" name="phone" class="form-control">
+                            <div id="phoneError" class="error-message" role="alert" aria-live="polite"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject</label>
+                            <select id="subject" name="subject" class="form-control" required aria-required="true">
+                                <option value="">Please select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="order">Order Status</option>
+                                <option value="custom">Custom Arrangement</option>
+                                <option value="wedding">Wedding Flowers</option>
+                                <option value="event">Event Flowers</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <div id="subjectError" class="error-message" role="alert" aria-live="polite"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" name="message" class="form-control" required aria-required="true" 
+                                      placeholder="Please let us know how we can help you..."></textarea>
+                            <div id="messageError" class="error-message" role="alert" aria-live="polite"></div>
+                        </div>
+                        <button type="submit" class="submit-button">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Bloom & Petal</h3>
+                    <p>Premium flower shop offering fresh bouquets, floral arrangements, and wedding flowers. Hand-crafted with care and delivered with love.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Follow us on Facebook"><span>F</span></a>
+                        <a href="#" class="social-link" aria-label="Follow us on Instagram"><span>I</span></a>
+                        <a href="#" class="social-link" aria-label="Follow us on Pinterest"><span>P</span></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#home">Home</a></li>
+                        <li class="footer-link"><a href="#products">Shop</a></li>
+                        <li class="footer-link"><a href="#about">About Us</a></li>
+                        <li class="footer-link"><a href="#testimonials">Testimonials</a></li>
+                        <li class="footer-link"><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">Flower Delivery</a></li>
+                        <li class="footer-link"><a href="#">Wedding Flowers</a></li>
+                        <li class="footer-link"><a href="#">Event Florals</a></li>
+                        <li class="footer-link"><a href="#">Custom Arrangements</a></li>
+                        <li class="footer-link"><a href="#">Corporate Accounts</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Store Hours</h3>
+                    <p>Monday - Friday: 9:00 AM - 6:00 PM<br>
+                    Saturday: 10:00 AM - 4:00 PM<br>
+                    Sunday: Closed</p>
+                    <p>Same-day delivery available for orders placed by 2:00 PM</p>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; <span id="current-year">2025</span> Bloom & Petal Demo Website. 
+                <strong>Built by <a href="https://boswellwebdevelopment.com" style="color: #60a5fa;">Boswell Web Development</a></strong> - Professional websites for Kentucky businesses.
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Demo Attribution Section - POSITIONED AFTER FOOTER -->
+    <div class="demo-attribution">
+        <div class="container">
+            <h4>🎯 Professional Website Demo</h4>
+            <p>This flower shop website showcases the quality and features you can expect for your business. Built with modern web technologies, responsive design, and SEO optimization.</p>
+            <div class="demo-cta-buttons">
+                <a href="/contact" class="demo-cta-primary">Get Your Website - 50% Off First 3 Clients</a>
+                <a href="/portfolio" class="demo-cta-secondary">View More Demos</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- JavaScript for Enhanced Functionality -->
+    <script>
+        // DOM Elements
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const navMenu = document.getElementById('nav-menu');
+        const contactForm = document.getElementById('contactForm');
+        const cartButton = document.querySelector('a[href="#cart"]');
+        const currentYearElement = document.getElementById('current-year');
+        
+        // Shopping Cart State
+        let cart = [];
+        let cartItemCount = 0;
+        
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current year in footer
+            setCurrentYear();
+            
+            // Initialize event listeners
+            initializeEventListeners();
+            
+            // Update cart display
+            updateCartDisplay();
+            
+            // Enhanced accessibility: focus management for mobile menu
+            setupMobileMenuAccessibility();
+        });
+        
+        /**
+         * Sets the current year in the footer copyright
+         */
+        function setCurrentYear() {
+            const currentYear = new Date().getFullYear();
+            if (currentYearElement) {
+                currentYearElement.textContent = currentYear;
+            }
+        }
+        
+        /**
+         * Initializes all event listeners for the application
+         */
+        function initializeEventListeners() {
+            // Mobile menu toggle
+            if (mobileMenuButton && navMenu) {
+                mobileMenuButton.addEventListener('click', toggleMobileMenu);
+            }
+            
+            // Contact form submission
+            if (contactForm) {
+                contactForm.addEventListener('submit', handleContactFormSubmit);
+            }
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', closeMobileMenuOnClickOutside);
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId !== '#') {
+                        e.preventDefault();
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            // Close mobile menu if open
+                            if (navMenu.classList.contains('active')) {
+                                toggleMobileMenu();
+                            }
+                            
+                            // Smooth scroll to target
+                            targetElement.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                            
+                            // Update URL hash
+                            window.history.pushState(null, null, targetId);
+                        }
+                    }
+                });
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', handleWindowResize);
+        }
+        
+        /**
+         * Toggles the mobile navigation menu
+         */
+        function toggleMobileMenu() {
+            if (!navMenu || !mobileMenuButton) return;
+            
+            const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+            navMenu.classList.toggle('active');
+            mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+            
+            // Enhance accessibility by managing focus
+            if (!isExpanded) {
+                // When opening, focus the first menu item
+                const firstMenuItem = navMenu.querySelector('a');
+                if (firstMenuItem) {
+                    // Use setTimeout to ensure the element is visible before focusing
+                    setTimeout(() => {
+                        firstMenuItem.focus();
+                    }, 100);
+                }
+            }
+        }
+        
+        /**
+         * Closes the mobile menu when clicking outside of it
+         * @param {MouseEvent} event - The click event
+         */
+        function closeMobileMenuOnClickOutside(event) {
+            if (!navMenu || !mobileMenuButton) return;
+            
+            const isMenuOpen = navMenu.classList.contains('active');
+            const isClickInsideMenu = navMenu.contains(event.target);
+            const isClickOnMenuButton = mobileMenuButton.contains(event.target);
+            
+            if (isMenuOpen && !isClickInsideMenu && !isClickOnMenuButton) {
+                navMenu.classList.remove('active');
+                mobileMenuButton.setAttribute('aria-expanded', 'false');
+            }
+        }
+        
+        /**
+         * Sets up enhanced accessibility features for the mobile menu
+         */
+        function setupMobileMenuAccessibility() {
+            if (!navMenu) return;
+            
+            // Handle keyboard navigation within the mobile menu
+            navMenu.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    // Close menu and return focus to menu button
+                    navMenu.classList.remove('active');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                    mobileMenuButton.focus();
+                }
+            });
+            
+            // Ensure proper tab order within the mobile menu
+            const menuItems = navMenu.querySelectorAll('a');
+            menuItems.forEach((item, index) => {
+                item.addEventListener('keydown', function(e) {
+                    // If Shift+Tab on first item, go to last item
+                    if (e.key === 'Tab' && e.shiftKey && index === 0) {
+                        e.preventDefault();
+                        menuItems[menuItems.length - 1].focus();
+                    }
+                    // If Tab on last item, go to first item
+                    else if (e.key === 'Tab' && !e.shiftKey && index === menuItems.length - 1) {
+                        e.preventDefault();
+                        menuItems[0].focus();
+                    }
+                });
+            });
+        }
+        
+        /**
+         * Handles window resize events
+         */
+        function handleWindowResize() {
+            // Close mobile menu on larger screens
+            if (window.innerWidth > 768 && navMenu && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                if (mobileMenuButton) {
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                }
+            }
+        }
+        
+        /**
+         * Validates a form field
+         */
+        function validateField(field) {
+            const { element, validator, errorMessage } = field;
+            const value = element.value.trim();
+            const errorElement = document.getElementById(element.id + 'Error');
+            
+            // Clear previous error state
+            element.classList.remove('error');
+            if (errorElement) {
+                errorElement.textContent = '';
+                errorElement.hidden = true;
+            }
+            
+            // Skip validation for optional fields that are empty
+            if (!value && !element.hasAttribute('required')) {
+                return true;
+            }
+            
+            // Perform validation
+            const isValid = validator(value);
+            
+            if (!isValid) {
+                // Add error state
+                element.classList.add('error');
+                if (errorElement) {
+                    errorElement.textContent = errorMessage;
+                    errorElement.hidden = false;
+                }
+            }
+            
+            return isValid;
+        }
+        
+        /**
+         * Validates the entire contact form
+         */
+        function validateContactForm() {
+            // Define validation rules for each field
+            const fields = [
+                {
+                    element: document.getElementById('name'),
+                    validator: (value) => value.length >= 2,
+                    errorMessage: 'Please enter your full name (at least 2 characters)'
+                },
+                {
+                    element: document.getElementById('email'),
+                    validator: (value) => {
+                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        return emailRegex.test(value);
+                    },
+                    errorMessage: 'Please enter a valid email address'
+                },
+                {
+                    element: document.getElementById('phone'),
+                    validator: (value) => {
+                        // Phone is optional, so empty value is valid
+                        if (!value) return true;
+                        // Otherwise validate phone format
+                        const phoneRegex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+                        return phoneRegex.test(value);
+                    },
+                    errorMessage: 'Please enter a valid phone number'
+                },
+                {
+                    element: document.getElementById('subject'),
+                    validator: (value) => value !== '',
+                    errorMessage: 'Please select a subject'
+                },
+                {
+                    element: document.getElementById('message'),
+                    validator: (value) => value.length >= 10,
+                    errorMessage: 'Please enter a message with at least 10 characters'
+                }
+            ];
+            
+            // Validate all fields
+            const results = fields.map(validateField);
+            
+            // Return whether all fields are valid
+            return results.every(result => result);
+        }
+        
+        /**
+         * Handles contact form submission (Demo version - shows success message)
+         */
+        function handleContactFormSubmit(event) {
+            event.preventDefault();
+            
+            // Show demo notice instead of actual validation
+            const demoNotice = document.createElement('div');
+            demoNotice.setAttribute('role', 'alert');
+            demoNotice.setAttribute('aria-live', 'polite');
+            demoNotice.style.position = 'fixed';
+            demoNotice.style.top = '20px';
+            demoNotice.style.right = '20px';
+            demoNotice.style.backgroundColor = '#3b82f6';
+            demoNotice.style.color = 'white';
+            demoNotice.style.padding = '15px 20px';
+            demoNotice.style.borderRadius = '8px';
+            demoNotice.style.zIndex = '2001';
+            demoNotice.style.maxWidth = '400px';
+            demoNotice.innerHTML = '<strong>🎯 Demo Notice:</strong> This is a portfolio demonstration. In a real website, this form would send your message to the business owner.';
+            
+            document.body.appendChild(demoNotice);
+            
+            // Remove notice after 6 seconds
+            setTimeout(() => {
+                if (document.body.contains(demoNotice)) {
+                    document.body.removeChild(demoNotice);
+                }
+            }, 6000);
+            
+            // Reset form for demo purposes
+            contactForm.reset();
+        }
+        
+        /**
+         * Adds a product to the shopping cart (Demo version)
+         */
+        function addToCart(productName, price) {
+            // Find if product already exists in cart
+            const existingProduct = cart.find(item => item.name === productName);
+            
+            if (existingProduct) {
+                // Increment quantity if product already in cart
+                existingProduct.quantity += 1;
+            } else {
+                // Add new product to cart
+                cart.push({
+                    name: productName,
+                    price: price,
+                    quantity: 1
+                });
+            }
+            
+            // Update cart item count
+            cartItemCount = cart.reduce((total, item) => total + item.quantity, 0);
+            
+            // Update cart display
+            updateCartDisplay();
+            
+            // Show demo notice
+            const alert = document.createElement('div');
+            alert.setAttribute('role', 'status');
+            alert.setAttribute('aria-live', 'polite');
+            alert.style.position = 'fixed';
+            alert.style.top = '80px';
+            alert.style.right = '20px';
+            alert.style.backgroundColor = '#3b82f6';
+            alert.style.color = 'white';
+            alert.style.padding = '12px 16px';
+            alert.style.borderRadius = '8px';
+            alert.style.zIndex = '2001';
+            alert.style.maxWidth = '300px';
+            alert.innerHTML = `<strong>🎯 Demo:</strong> ${productName} added to cart. Cart: ${cartItemCount} items.`;
+            
+            document.body.appendChild(alert);
+            
+            // Remove alert after 4 seconds
+            setTimeout(() => {
+                if (document.body.contains(alert)) {
+                    document.body.removeChild(alert);
+                }
+            }, 4000);
+        }
+        
+        /**
+         * Updates the cart display in the navigation
+         */
+        function updateCartDisplay() {
+            if (cartButton) {
+                cartButton.textContent = `Cart (${cartItemCount})`;
+            }
+        }
+        
+        // Error handling for JavaScript errors
+        window.addEventListener('error', function(e) {
+            console.error('JavaScript error:', e.error);
+        });
+        
+        // Handle unhandled promise rejections
+        window.addEventListener('unhandledrejection', function(e) {
+            console.error('Unhandled promise rejection:', e.reason);
+            e.preventDefault();
+        });
+    </script>
+</body>
+</html>

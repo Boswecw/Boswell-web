@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Local Nest Boutique - Handmade Goods | Boswell Web Development</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+            url('https://firebasestorage.googleapis.com/v0/b/endless-fire-467204-n2.firebasestorage.app/o/hero-image.webp?alt=media&token=bc3106e4-1f08-4af8-9f73-30c4d8cc4dac') center/cover;
+        }
+        .product-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Demo Banner -->
+    <div class="bg-rose-900 text-white p-3 text-center relative">
+        <div class="max-w-4xl mx-auto">
+            <p class="text-sm">
+                <i class="fas fa-info-circle mr-2"></i>
+                <strong>Live Demo</strong> - The Local Nest Boutique website built by Boswell Web Development Solutions
+            </p>
+            <a href="/" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-rose-200 hover:text-white" aria-label="Close demo and return to main site">
+                <i class="fas fa-times"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="font-bold text-2xl text-rose-600 flex items-center">
+                    <i class="fas fa-heart mr-2"></i>
+                    The Local Nest
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-rose-600 transition">Home</a>
+                    <a href="#products" class="text-gray-700 hover:text-rose-600 transition">Products</a>
+                    <a href="#about" class="text-gray-700 hover:text-rose-600 transition">About</a>
+                    <a href="#contact" class="text-gray-700 hover:text-rose-600 transition">Contact</a>
+                </div>
+                <button class="bg-rose-600 text-white px-4 py-2 rounded-lg hover:bg-rose-700 transition">
+                    <i class="fas fa-shopping-bag mr-2"></i>Shop Now
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg h-screen flex items-center justify-center text-white text-center">
+        <div class="fade-in">
+            <h1 class="text-5xl md:text-7xl font-bold mb-4">The Local Nest</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
+                Handcrafted treasures and artisan goods that bring warmth to your home
+            </p>
+            <div class="space-x-4">
+                <button class="bg-rose-600 hover:bg-rose-700 text-white px-8 py-3 rounded-lg text-lg font-semibold transition transform hover:scale-105">
+                    <i class="fas fa-search mr-2"></i>Browse Collection
+                </button>
+                <button class="border-2 border-white hover:bg-white hover:text-gray-900 text-white px-8 py-3 rounded-lg text-lg font-semibold transition">
+                    <i class="fas fa-info-circle mr-2"></i>Our Story
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Why Choose The Local Nest?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center fade-in">
+                    <div class="bg-rose-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 floating">
+                        <i class="fas fa-hand-holding-heart text-rose-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Handcrafted Quality</h3>
+                    <p class="text-gray-600">Each piece is carefully made by local artisans with attention to detail</p>
+                </div>
+                <div class="text-center fade-in">
+                    <div class="bg-rose-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 floating" style="animation-delay: 0.2s;">
+                        <i class="fas fa-leaf text-rose-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Sustainable Materials</h3>
+                    <p class="text-gray-600">Eco-friendly and ethically sourced materials for conscious living</p>
+                </div>
+                <div class="text-center fade-in">
+                    <div class="bg-rose-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 floating" style="animation-delay: 0.4s;">
+                        <i class="fas fa-home text-rose-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Local Community</h3>
+                    <p class="text-gray-600">Supporting local artists and bringing unique pieces to your home</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section id="products" class="py-16 bg-gray-100">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Featured Collection</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="product-item bg-white rounded-lg overflow-hidden shadow-lg cursor-pointer">
+                    <img src="https://media.istockphoto.com/id/481169668/photo/green-ceramic-bowl-on-a-white-background.jpg?s=612x612&w=is&k=20&c=j2wlR5JiG75D8IBHpbegc8YWaJd1yyT9aIg10Cav490="
+                         alt="Handwoven Ceramic Bowl" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Handwoven Ceramic Bowl</h3>
+                        <p class="text-gray-600 mb-3">Beautiful artisan ceramic bowl perfect for serving or display</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-rose-600">$45</span>
+                            <button class="bg-rose-600 text-white px-4 py-2 rounded hover:bg-rose-700 transition">
+                                <i class="fas fa-cart-plus mr-1"></i>Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-item bg-white rounded-lg overflow-hidden shadow-lg cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1603905179139-db12ab535ca9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8QXJ0aXNhbiUyMFNveSUyMENhbmRsZXN8ZW58MHx8MHx8fDA%3D"
+                         alt="Handmade Candles" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Artisan Soy Candles</h3>
+                        <p class="text-gray-600 mb-3">Hand-poured soy candles with natural essential oils</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-rose-600">$28</span>
+                            <button class="bg-rose-600 text-white px-4 py-2 rounded hover:bg-rose-700 transition">
+                                <i class="fas fa-cart-plus mr-1"></i>Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-item bg-white rounded-lg overflow-hidden shadow-lg cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1606074508174-6fa572bd2777?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                         alt="Macrame Wall Hanging" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Macrame Wall Art</h3>
+                        <p class="text-gray-600 mb-3">Handknotted macrame wall hanging made with natural cotton</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-rose-600">$65</span>
+                            <button class="bg-rose-600 text-white px-4 py-2 rounded hover:bg-rose-700 transition">
+                                <i class="fas fa-cart-plus mr-1"></i>Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <button class="bg-rose-600 hover:bg-rose-700 text-white px-8 py-3 rounded-lg text-lg font-semibold transition">
+                    <i class="fas fa-th mr-2"></i>View Full Collection
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold text-gray-800 mb-8">Our Story</h2>
+            <div class="bg-rose-50 rounded-lg p-8">
+                <p class="text-lg text-gray-700 mb-6">
+                    The Local Nest was born from a passion for supporting local artisans and bringing unique, 
+                    handcrafted pieces into every home. We believe that every item should tell a story and 
+                    bring joy to your daily life.
+                </p>
+                <p class="text-lg text-gray-700 mb-6">
+                    Our carefully curated collection features handmade goods from talented artists in our 
+                    community, each piece selected for its quality, beauty, and the love that went into creating it.
+                </p>
+                <div class="flex justify-center space-x-8 mt-8">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-rose-600">50+</div>
+                        <div class="text-gray-600">Local Artists</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-rose-600">500+</div>
+                        <div class="text-gray-600">Unique Items</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-rose-600">100%</div>
+                        <div class="text-gray-600">Handmade</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact" class="py-16 bg-gray-100">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Get In Touch</h2>
+            <div class="bg-white rounded-lg p-8 shadow-lg">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="customer-name" class="block text-gray-700 text-sm font-bold mb-2">Name</label>
+                        <input
+                            type="text"
+                            id="customer-name"
+                            name="name"
+                            class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-rose-500"
+                            aria-label="Enter your full name"
+                        >
+                    </div>
+                    <div>
+                        <label for="customer-email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+                        <input
+                            type="email"
+                            id="customer-email"
+                            name="email"
+                            class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-rose-500"
+                            aria-label="Enter your email address"
+                        >
+                    </div>
+                    <div>
+                        <label for="inquiry-type" class="block text-gray-700 text-sm font-bold mb-2">Inquiry Type</label>
+                        <select
+                            id="inquiry-type"
+                            name="inquiry-type"
+                            class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-rose-500"
+                            aria-label="Select type of inquiry"
+                        >
+                            <option value="">Select inquiry type</option>
+                            <option value="product">Product Question</option>
+                            <option value="custom">Custom Order</option>
+                            <option value="wholesale">Wholesale</option>
+                            <option value="general">General Inquiry</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="customer-phone" class="block text-gray-700 text-sm font-bold mb-2">Phone (Optional)</label>
+                        <input
+                            type="tel"
+                            id="customer-phone"
+                            name="phone"
+                            placeholder="(555) 123-4567"
+                            class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-rose-500"
+                            aria-label="Enter your phone number"
+                        >
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <label for="customer-message" class="block text-gray-700 text-sm font-bold mb-2">Message</label>
+                    <textarea
+                        id="customer-message"
+                        name="message"
+                        rows="4"
+                        placeholder="Tell us about your inquiry, custom requests, or any questions you have..."
+                        class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-rose-500"
+                        aria-label="Enter your message or inquiry details"
+                    ></textarea>
+                </div>
+                <div class="text-center mt-8">
+                    <button class="bg-rose-600 hover:bg-rose-700 text-white px-12 py-3 rounded-lg text-lg font-semibold transition transform hover:scale-105">
+                        <i class="fas fa-paper-plane mr-2"></i>Send Message
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Info -->
+    <section class="py-16 bg-gray-800 text-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">Visit Our Boutique</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Store Information</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-rose-400 text-xl w-8"></i>
+                            <span>456 Artisan Lane, Creative District, Louisville, KY 40202</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-rose-400 text-xl w-8"></i>
+                            <span>(502) 555-NEST</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-rose-400 text-xl w-8"></i>
+                            <span>hello@thelocalnest.com</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-clock text-rose-400 text-xl w-8"></i>
+                            <div>
+                                <div>Mon-Sat: 10:00 AM - 7:00 PM</div>
+                                <div>Sunday: 12:00 PM - 5:00 PM</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Connect With Us</h3>
+                    <div class="flex space-x-4 mb-6">
+                        <a href="#" class="bg-rose-600 p-3 rounded-full hover:bg-rose-700 transition" aria-label="Follow us on Instagram">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="bg-rose-600 p-3 rounded-full hover:bg-rose-700 transition" aria-label="Follow us on Facebook">
+                            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="bg-rose-600 p-3 rounded-full hover:bg-rose-700 transition" aria-label="Follow us on Pinterest">
+                            <i class="fab fa-pinterest" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="bg-rose-600 p-3 rounded-full hover:bg-rose-700 transition" aria-label="Follow us on TikTok">
+                            <i class="fab fa-tiktok" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-300">
+                        Follow us for behind-the-scenes looks at our artisans at work, new product launches, 
+                        and inspiration for bringing handmade beauty into your everyday life.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <div class="bg-rose-900/20 border border-rose-400 rounded-lg p-4 mb-6">
+                <p class="text-rose-200 text-sm">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    <strong>Demo Website</strong> - Built by Boswell Web Development Solutions LLC
+                </p>
+                <p class="text-rose-300 text-xs mt-1">
+                    Showcasing: E-commerce design, product galleries, responsive layout, accessibility features
+                </p>
+                <div class="mt-3 space-x-3">
+                    <a href="/contact" class="bg-rose-600 hover:bg-rose-700 text-white px-4 py-2 rounded text-sm inline-block">
+                        Get Your Boutique Website →
+                    </a>
+                    <a href="/" class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded text-sm inline-block">
+                        Back to Main Site
+                    </a>
+                </div>
+            </div>
+            <p>&copy; 2025 The Local Nest Boutique Demo. Built by Boswell Web Development Solutions.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all product items and sections
+        document.querySelectorAll('.product-item, section > div').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add floating animation with staggered delays
+        document.querySelectorAll('.floating').forEach((el, index) => {
+            el.style.animationDelay = `${index * 0.2}s`;
+        });
+    </script>
+</body>
+</html>
