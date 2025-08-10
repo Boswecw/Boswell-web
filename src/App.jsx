@@ -6,6 +6,7 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import Portfolio from './pages/Portfolio';
 import ResumePage from './pages/ResumePage';
+import CurrentProjectsSection from './components/CurrentProjectsSection';
 import ErrorBoundary from './components/ErrorBoundary';
 import GoogleAnalytics from './components/GoogleAnalytics';
 import './index.css';
@@ -22,6 +23,7 @@ function App() {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/resume" element={<ResumePage />} />
+            <Route path="/current-projects" element={<CurrentProjectsSection />} />
             {/* Add a catch-all route for 404 pages */}
             <Route path="*" element={<LandingPage />} />
           </Routes>

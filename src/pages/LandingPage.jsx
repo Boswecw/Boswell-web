@@ -133,6 +133,24 @@ export default function LandingPage() {
                 </Button>
               </motion.div>
 
+              {/* NEW: Current Projects Button */}
+              <motion.div
+                whileHover={buttonHover}
+                whileTap={buttonTap}
+                className="w-full sm:w-auto"
+              >
+                <Button
+                  variant="ghost"
+                  asChild
+                  className="text-base md:text-lg px-8 py-4 w-full sm:w-auto text-purple-300 hover:bg-purple-800 hover:text-white shadow-lg border border-purple-400/30"
+                >
+                  <Link to="/current-projects" className="inline-flex items-center gap-2">
+                    <FaCode className="text-sm" />
+                    Current Projects
+                  </Link>
+                </Button>
+              </motion.div>
+
               <motion.div
                 whileHover={buttonHover}
                 whileTap={buttonTap}
@@ -143,7 +161,7 @@ export default function LandingPage() {
                   asChild
                   className="text-base md:text-lg px-8 py-4 w-full sm:w-auto text-gray-300 hover:bg-gray-800 hover:text-white shadow-lg"
                 >
-                  <Link to="/portfolio">Portfolio</Link>
+                  <Link to="/portfolio">Portfolio & Demos</Link>
                 </Button>
               </motion.div>
             </motion.div>
@@ -446,10 +464,23 @@ export default function LandingPage() {
                 <Button
                   variant="outline"
                   asChild
+                  className="border-purple-400 text-purple-300 hover:bg-purple-700 px-8 py-4 text-lg"
+                >
+                  <Link to="/current-projects">
+                    <FaCode className="mr-2" />
+                    Current Projects
+                  </Link>
+                </Button>
+              </motion.div>
+              
+              <motion.div whileHover={buttonHover} whileTap={buttonTap}>
+                <Button
+                  variant="outline"
+                  asChild
                   className="border-gray-400 text-gray-300 hover:bg-gray-700 px-8 py-4 text-lg"
                 >
                   <Link to="/portfolio">
-                    View Our Work
+                    View Live Demos
                   </Link>
                 </Button>
               </motion.div>

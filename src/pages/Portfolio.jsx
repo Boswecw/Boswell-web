@@ -38,6 +38,7 @@ export default function Portfolio() {
     {
       id: 'restaurant-demo',
       name: 'Kentucky Bistro Restaurant',
+<<<<<<< HEAD
       description:
         'Full-featured restaurant website with online reservations, menu display, and mobile-responsive design. Built to showcase modern web development capabilities for local Kentucky businesses.',
       technologies: ['React', 'Tailwind CSS', 'Responsive Design', 'Accessibility'],
@@ -75,6 +76,18 @@ export default function Portfolio() {
   ];
   
     
+=======
+      description: 'Full-featured restaurant website with online reservations, menu display, and mobile-responsive design. Built to showcase modern web development capabilities for local Kentucky businesses.',
+      technologies: ['React', 'Tailwind CSS', 'Responsive Design', 'Accessibility'],
+      demoUrl: '/restaurant-demo.html',
+      image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&w=600&q=80',
+      type: 'Live Demo',
+      featured: true,
+      buildTime: '2 days'
+    }
+  ];
+
+>>>>>>> 2329cd3 (website update)
   return (
     <>
       <SEOHead
