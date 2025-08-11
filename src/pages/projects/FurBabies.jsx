@@ -11,7 +11,7 @@ export default function FurBabies() {
         title="FurBabies E-commerce Platform | Project Details"
         description="Complete e-commerce platform for pet supplies with React, Node.js, and Stripe integration. Advanced features and mobile-first design."
         keywords="e-commerce development, pet supplies website, React e-commerce, Stripe integration"
-        url="https://boswellwebdevelopment.com/projects/furbabies"
+        url="https://furbabies-frontend.onrender.com"
       />
       <ProjectDetailTemplate projectData={furBabiesData} />
     </>
