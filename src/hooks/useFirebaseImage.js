@@ -1,37 +1,42 @@
 // src/hooks/useFirebaseImage.js
 import { useState, useEffect } from 'react';
-import { getDownloadURL, ref } from 'firebase/storage';
 import { storage } from '../firebase/config';
+import { ref, getDownloadURL } from 'firebase/storage';
 
-const useFirebaseImage = (imagePath) => {
+export const useFirebaseImage = (storagePath) => {
   const [imageUrl, setImageUrl] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (!imagePath) {
+    if (!storagePath) {
       setLoading(false);
       return;
     }
 
     const fetchImage = async () => {
       try {
-        const imageRef = ref(storage, imagePath);
+        setLoading(true);
+        const imageRef = ref(storage, storagePath);
         const url = await getDownloadURL(imageRef);
         setImageUrl(url);
         setError(null);
       } catch (err) {
-        console.error('Error fetching image from Firebase:', err);
-        setError(err.message);
+        // Handle error silently or with proper error reporting
+        // In development, you might want to log this:
+        if (import.meta.env.DEV) {
+          // eslint-disable-next-line no-console
+          console.error('Error fetching Firebase image:', err);
+        }
+        setError(err);
+        setImageUrl(null);
       } finally {
         setLoading(false);
       }
     };
 
     fetchImage();
-  }, [imagePath]);
+  }, [storagePath]);
 
   return { imageUrl, loading, error };
 };
-
-export default useFirebaseImage;

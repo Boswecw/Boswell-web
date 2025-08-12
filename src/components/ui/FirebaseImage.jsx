@@ -1,37 +1,52 @@
-// src/hooks/useFirebaseImage.js
-import { useState, useEffect } from 'react';
-import { getDownloadURL, ref } from 'firebase/storage';
-import { storage } from '../firebase/config';
+// src/components/ui/FirebaseImage.jsx
+import React from 'react';
+import { useFirebaseImage } from '../../hooks/useFirebaseImage';
 
-const useFirebaseImage = (imagePath) => {
-  const [imageUrl, setImageUrl] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+const FirebaseImage = ({ 
+  storagePath, 
+  alt, 
+  className = '', 
+  fallback = null,
+  ...props 
+}) => {
+  const { imageUrl, loading, error } = useFirebaseImage(storagePath);
 
-  useEffect(() => {
-    if (!imagePath) {
-      setLoading(false);
-      return;
+  if (loading) {
+    return (
+      <div className={`bg-gray-200 animate-pulse ${className}`}>
+        <div className="flex items-center justify-center h-full">
+          <span className="text-gray-500 text-sm">Loading...</span>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    // Removed console.error - handle silently or with proper error reporting
+    if (fallback) {
+      return fallback;
     }
+    return (
+      <div className={`bg-gray-100 border-2 border-dashed border-gray-300 ${className}`}>
+        <div className="flex items-center justify-center h-full">
+          <span className="text-gray-500 text-sm">Image unavailable</span>
+        </div>
+      </div>
+    );
+  }
 
-    const fetchImage = async () => {
-      try {
-        const imageRef = ref(storage, imagePath);
-        const url = await getDownloadURL(imageRef);
-        setImageUrl(url);
-        setError(null);
-      } catch (err) {
-        console.error('Error fetching image from Firebase:', err);
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
+  if (!imageUrl) {
+    return fallback;
+  }
 
-    fetchImage();
-  }, [imagePath]);
-
-  return { imageUrl, loading, error };
+  return (
+    <img
+      src={imageUrl}
+      alt={alt}
+      className={className}
+      {...props}
+    />
+  );
 };
 
-export default useFirebaseImage;
+export default FirebaseImage;

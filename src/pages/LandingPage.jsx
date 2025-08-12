@@ -466,7 +466,7 @@ export default function LandingPage() {
                   asChild
                   className="border-purple-400 text-purple-300 hover:bg-purple-700 px-8 py-4 text-lg"
                 >
-                  <Link to="/current-projects">
+                  <Link to="/CurrentProjectsSection"> 
                     <FaCode className="mr-2" />
                     Current Projects
                   </Link>

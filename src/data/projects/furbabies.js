@@ -1,23 +1,19 @@
 // src/data/projects/furbabies.js
 export const furBabiesData = {
-    // ========================================
-    // BASIC PROJECT INFORMATION
-    // ========================================
-    name: "FurBabies E-commerce Platform",
-    type: "Full E-commerce Website",
-    status: "Active Development",
-    progress: 70,
-    startDate: "September 2024",
-    targetCompletion: "March 2025",
-    
-    // ========================================
-    // HERO SECTION CONTENT
-    // ========================================
-    tagline: "Complete pet supply e-commerce solution with modern features and seamless user experience",
-    heroImage: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?ixlib=rb-4.0.3&w=1200&q=80",
-    liveDemo: "/furbabies-demo",
-    githubRepo: "https://github.com/Boswecw/furbabies-ecommerce",
-    
+  // BASIC PROJECT INFORMATION
+  name: "FurBabies E-commerce Platform",
+  type: "Full E-commerce Website",
+  status: "Active Development",
+  progress: 70,
+  startDate: "September 2024",
+  targetCompletion: "March 2025",
+
+  // HERO SECTION CONTENT
+  tagline: "Complete pet supply e-commerce solution with modern features and seamless user experience",
+  heroImage: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?ixlib=rb-4.0.3&w=1200&q=80", // <-- must be a URL string
+  liveDemo: "https://furbabies-frontend.onrender.com", // <-- external URL is perfect
+  githubRepo: "https://github.com/Boswecw/furbabies-ecommerce",
+  
     // ========================================
     // PROBLEM & SOLUTION NARRATIVE
     // ========================================

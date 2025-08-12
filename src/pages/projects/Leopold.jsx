@@ -1,19 +1,19 @@
-// src/pages/projects/FurBabies.jsx
+// src/pages/projects/Leopold.jsx
 import React from 'react';
 import ProjectDetailTemplate from '../../components/ProjectDetailTemplate';
-import { furBabiesData } from '../../data/projects/furbabies';
+import { leopoldData } from '../../data/projects/leopold';
 import SEOHead from '../../components/SEOHead';
 
-export default function FurBabies() {
+export default function Leopold() {
   return (
     <>
       <SEOHead
-        title="FurBabies E-commerce Platform | Project Details"
-        description="Complete e-commerce platform for pet supplies with React, Node.js, and Stripe integration. Advanced features and mobile-first design."
-        keywords="e-commerce development, pet supplies website, React e-commerce, Stripe integration"
-        url="https://furbabies-frontend.onrender.com"
+        title="Leopold Nature Observation App | Project Details"
+        description="Advanced nature observation and wildlife tracking application built with React, Node.js, and PostgreSQL. Features real-time data collection and collaborative research tools."
+        keywords="nature app, wildlife tracking, conservation technology, React app, PostgreSQL, environmental science"
+        url="https://leopold-app.onrender.com"
       />
-      <ProjectDetailTemplate projectData={furBabiesData} />
+      <ProjectDetailTemplate projectData={leopoldData} />
     </>
   );
 }

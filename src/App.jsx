@@ -1,35 +1,53 @@
+// src/App.jsx
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { HelmetProvider } from 'react-helmet-async';
-import LandingPage from './pages/LandingPage';
-import AboutPage from './pages/AboutPage';
-import ContactPage from './pages/ContactPage';
-import Portfolio from './pages/Portfolio';
-import ResumePage from './pages/ResumePage';
-import CurrentProjectsSection from './components/CurrentProjectsSection';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom'; // <-- HashRouter for static hosting safety
 import ErrorBoundary from './components/ErrorBoundary';
 import GoogleAnalytics from './components/GoogleAnalytics';
+import {
+  LazyLandingPage,
+  LazyAboutPage,
+  LazyContactPage,
+  LazyPortfolio,
+  LazyCurrentProjectsSection,
+  withSuspense
+} from './utils/LazyComponents';
+import ResumePage from './pages/ResumePage';
+import FurBabies from './pages/projects/FurBabies';
+import Leopold from './pages/projects/Leopold';
+import Livy from './pages/projects/Livy';
 import './index.css';
+
+// Suspense-wrapped lazies
+const LandingPage = withSuspense(LazyLandingPage);
+const AboutPage = withSuspense(LazyAboutPage);
+const ContactPage = withSuspense(LazyContactPage);
+const Portfolio = withSuspense(LazyPortfolio);
+const CurrentProjects = withSuspense(LazyCurrentProjectsSection);
 
 function App() {
   return (
-    <HelmetProvider>
-      <ErrorBoundary>
-        <Router>
-          <GoogleAnalytics />
-          <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/portfolio" element={<Portfolio />} />
-            <Route path="/resume" element={<ResumePage />} />
-            <Route path="/current-projects" element={<CurrentProjectsSection />} />
-            {/* Add a catch-all route for 404 pages */}
-            <Route path="*" element={<LandingPage />} />
-          </Routes>
-        </Router>
-      </ErrorBoundary>
-    </HelmetProvider>
+    <ErrorBoundary>
+      <Router>
+        <GoogleAnalytics />
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/current-projects" element={<CurrentProjects />} />
+
+          {/* Project detail routes (lowercase slugs) */}
+          <Route path="/projects/furbabies" element={<FurBabies />} />
+          <Route path="/projects/leopold" element={<Leopold />} />   {/* <- fixed case */}
+          <Route path="/projects/livy" element={<Livy />} />
+
+          <Route path="/resume" element={<ResumePage />} />
+
+          {/* Fallback */}
+          <Route path="*" element={<LandingPage />} />
+        </Routes>
+      </Router>
+    </ErrorBoundary>
   );
 }
 
