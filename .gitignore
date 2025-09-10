@@ -129,4 +129,4 @@ build/
 Thumbs.db
 
 .env.production
-# Ignore specific files in the src directory
+# Ignore specific files in the src directory*:[Zz]one.Identifier
