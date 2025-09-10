@@ -1,6 +1,6 @@
 // src/components/SEOHead.jsx
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from '@dr.pogodin/react-helmet';
 
 export default function SEOHead({ 
   title = "Boswell Web Development Solutions LLC", 
