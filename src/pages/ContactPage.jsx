@@ -275,7 +275,7 @@ export default function ContactPage() {
                   method="POST"
                   data-netlify="true"
                   netlify-honeypot="bot-field"
-                  action="/success"         // make a simple success page/route
+                  action="/success"         
                   onSubmit={() =>
                     trackContactFormSubmit(selected ? selected.name : "no_package_selected")
                   }

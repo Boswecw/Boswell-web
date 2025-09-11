@@ -1,15 +1,16 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { HelmetProvider } from '@dr.pogodin/react-helmet';
-import LandingPage from './pages/LandingPage';
-import AboutPage from './pages/AboutPage';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HelmetProvider } from "@dr.pogodin/react-helmet";
+import LandingPage from "./pages/LandingPage";
+import AboutPage from "./pages/AboutPage";
 import ServicesPage from "@/pages/ServicesPage";
-import ContactPage from './pages/ContactPage';
-import Portfolio from './pages/Portfolio';
-import ResumePage from './pages/ResumePage';
-import ErrorBoundary from './components/ErrorBoundary';
-import GoogleAnalytics from './components/GoogleAnalytics';
-import './index.css';
+import ContactPage from "./pages/ContactPage";
+import Success from "./pages/Success";
+import Portfolio from "./pages/Portfolio";
+import ResumePage from "./pages/ResumePage";
+import ErrorBoundary from "./components/ErrorBoundary";
+import GoogleAnalytics from "./components/GoogleAnalytics";
+import "./index.css";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/success" element={<Success />} />
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/resume" element={<ResumePage />} />
             <Route path="/services" element={<ServicesPage />} />
