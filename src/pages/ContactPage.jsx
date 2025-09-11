@@ -1,6 +1,6 @@
 // src/pages/ContactPage.jsx
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/Button";
 import {
@@ -28,14 +28,13 @@ import Navbar from "@/components/Navbar";
 export default function ContactPage() {
   const navigate = useNavigate();
 
-  // Pricing packages (no sales/discount language)
+  // Pricing packages
   const packages = [
     {
       id: "starter",
       name: "Starter Website",
       price: "$900 – $1,500",
-      description:
-        "Clean, fast, custom-coded site for portfolios and small businesses.",
+      description: "Clean, fast, custom-coded site for portfolios and small businesses.",
       pages: "1–3",
       revisions: "3",
       timeline: "1–2 weeks",
@@ -53,8 +52,7 @@ export default function ContactPage() {
       id: "business",
       name: "Business Website",
       price: "$1,800 – $3,500",
-      description:
-        "Marketing site plus content tools and integrations for growing teams.",
+      description: "Marketing site plus content tools and integrations for growing teams.",
       pages: "4–7",
       revisions: "5",
       timeline: "2–3 weeks",
@@ -119,6 +117,10 @@ export default function ContactPage() {
     message: "",
   });
 
+  // UI state for AJAX + toast
+  const [submitting, setSubmitting] = useState(false);
+  const [toast, setToast] = useState({ type: null, msg: "" }); // type: 'success' | 'error' | null
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -134,6 +136,60 @@ export default function ContactPage() {
       timeline: selected.timeline,
     }));
     trackPackageSelection(selected.name);
+  };
+
+  // AJAX submit to Netlify (no page reload)
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (submitting) return;
+
+    setSubmitting(true);
+    setToast({ type: null, msg: "" });
+
+    try {
+      const formEl = e.currentTarget;
+      const data = new FormData(formEl);
+
+      // Netlify requires form-name in the payload
+      if (!data.get("form-name")) data.set("form-name", formEl.getAttribute("name"));
+
+      const res = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams([...data]).toString(),
+      });
+
+      if (!res.ok) throw new Error(`Netlify form POST failed: ${res.status}`);
+
+      // analytics
+      trackContactFormSubmit(
+        packages.find((p) => p.id === selectedPackage)?.name || "no_package_selected"
+      );
+
+      // success toast
+      setToast({ type: "success", msg: "Thanks — message received. I’ll reply within 24 hours." });
+
+      // optional: clear inputs after success
+      setFormData((prev) => ({
+        ...prev,
+        name: "",
+        email: "",
+        company: "",
+        message: "",
+      }));
+
+      // auto-hide toast after 4s
+      setTimeout(() => setToast({ type: null, msg: "" }), 4000);
+    } catch (err) {
+      setToast({
+        type: "error",
+        msg:
+          "Submit failed. Please check your connection and try again, or email charlesboswell@boswellwebdevelopment.com.",
+      });
+      setTimeout(() => setToast({ type: null, msg: "" }), 6000);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const containerVariants = {
@@ -214,9 +270,7 @@ export default function ContactPage() {
                     )}
 
                     <h3 className="text-xl font-bold text-white mb-1">{pkg.name}</h3>
-                    <div className="text-2xl font-bold text-blue-400 mb-2">
-                      {pkg.price}
-                    </div>
+                    <div className="text-2xl font-bold text-blue-400 mb-2">{pkg.price}</div>
                     <p className="text-gray-400 text-sm mb-4">{pkg.description}</p>
 
                     <div className="space-y-2 text-sm mb-4">
@@ -269,16 +323,13 @@ export default function ContactPage() {
                   Project Details
                 </h2>
 
-                {/* Netlify-form enabled */}
+                {/* Netlify-form (AJAX) */}
                 <form
                   name="contact"
                   method="POST"
                   data-netlify="true"
                   netlify-honeypot="bot-field"
-                  action="/success"         
-                  onSubmit={() =>
-                    trackContactFormSubmit(selected ? selected.name : "no_package_selected")
-                  }
+                  onSubmit={handleSubmit}
                   className="space-y-6"
                 >
                   {/* Netlify required hidden fields */}
@@ -390,18 +441,21 @@ export default function ContactPage() {
 
                   <Button
                     type="submit"
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-200 transform hover:scale-105"
+                    disabled={submitting}
+                    className={`w-full text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-200 transform ${
+                      submitting
+                        ? "bg-blue-800 cursor-not-allowed"
+                        : "bg-blue-600 hover:bg-blue-700 hover:scale-105"
+                    }`}
                   >
-                    Send Project Request →
+                    {submitting ? "Sending..." : "Send Project Request →"}
                   </Button>
                 </form>
               </motion.div>
 
               {/* Contact Info & Social Proof */}
               <motion.div variants={itemVariants} className="space-y-6">
-                <h2 className="text-2xl font-semibold text-blue-400 mb-6">
-                  Get in Touch
-                </h2>
+                <h2 className="text-2xl font-semibold text-blue-400 mb-6">Get in Touch</h2>
 
                 <div className="space-y-4">
                   <div className="flex items-center gap-4">
@@ -511,6 +565,25 @@ export default function ContactPage() {
             </div>
           </motion.div>
         </div>
+
+        {/* Toasts */}
+        <AnimatePresence>
+          {toast.type && (
+            <motion.div
+              key="toast"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              className={`fixed bottom-4 right-4 z-[100] rounded-lg px-4 py-3 shadow-lg border ${
+                toast.type === "success"
+                  ? "bg-green-900/80 border-green-600 text-green-100"
+                  : "bg-red-900/80 border-red-600 text-red-100"
+              }`}
+            >
+              {toast.msg}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </>
   );

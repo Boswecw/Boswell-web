@@ -5,7 +5,6 @@ import LandingPage from "./pages/LandingPage";
 import AboutPage from "./pages/AboutPage";
 import ServicesPage from "@/pages/ServicesPage";
 import ContactPage from "./pages/ContactPage";
-import Success from "./pages/Success";
 import Portfolio from "./pages/Portfolio";
 import ResumePage from "./pages/ResumePage";
 import ErrorBoundary from "./components/ErrorBoundary";
@@ -22,7 +21,6 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
-            <Route path="/success" element={<Success />} />
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/resume" element={<ResumePage />} />
             <Route path="/services" element={<ServicesPage />} />

@@ -1,27 +1,42 @@
+// src/pages/AboutPage.jsx
 import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/Button";
-import { FaArrowLeft, FaEnvelope, FaCog, FaGlobe, FaBrain, FaMobile, FaFire, FaTree, FaCode, FaGraduationCap, FaFlag, FaExternalLinkAlt } from "react-icons/fa";
+import {
+  FaArrowLeft,
+  FaEnvelope,
+  FaCog,
+  FaGlobe,
+  FaBrain,
+  FaMobile,
+  FaFire,
+  FaTree,
+  FaCode,
+  FaGraduationCap,
+  FaFlag,
+  FaExternalLinkAlt,
+} from "react-icons/fa";
 import SEOHead from "@/components/SEOHead";
 import Navbar from "@/components/Navbar";
+import FAQSection from "@/components/FAQSection"; // ← add this import
 
 export default function AboutPage() {
   const navigate = useNavigate();
 
   const containerVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, staggerChildren: 0.1 } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, staggerChildren: 0.1 } },
   };
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1, transition: { duration: 0.6 } }
+    visible: { y: 0, opacity: 1, transition: { duration: 0.6 } },
   };
 
   return (
     <>
-      <SEOHead 
+      <SEOHead
         title="About Boswell Web Development Solutions | Veteran-Owned Web Development"
         description="Learn about Charles Boswell, U.S. Navy veteran and founder of Boswell Web Development Solutions. From 20+ years of government service to cutting-edge web development in Lexington, KY."
         keywords="about boswell web development, charles boswell veteran, navy veteran web developer, lexington kentucky web development, veteran owned business"
@@ -31,18 +46,23 @@ export default function AboutPage() {
       <Navbar />
 
       <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-black text-white pt-24 p-6">
-        <motion.div variants={containerVariants} initial="hidden" animate="visible" className="max-w-4xl mx-auto">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="max-w-4xl mx-auto"
+        >
           {/* Header */}
           <motion.div variants={itemVariants} className="mb-8">
             <Button
               variant="ghost"
-              onClick={() => navigate('/')}
+              onClick={() => navigate("/")}
               className="mb-6 text-gray-300 hover:text-white"
             >
               <FaArrowLeft className="mr-2" />
               Back to Home
             </Button>
-            
+
             <div className="text-center mb-12">
               <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-white to-blue-400 bg-clip-text text-transparent mb-4">
                 About Boswell Web Development Solutions
@@ -58,10 +78,19 @@ export default function AboutPage() {
                 Purpose-Built Websites with Real-World Impact
               </h2>
               <p className="text-lg text-gray-300 leading-relaxed mb-4">
-                At <strong className="text-blue-400">Boswell Web Development Solutions</strong>, we believe the internet should do more than look good—it should <em className="text-blue-300">work hard</em> for the people using it. Founded by Charles Boswell, a U.S. Navy veteran and former U.S. Forest Service leader with over two decades of government service, our company brings mission-driven precision to every line of code.
+                At <strong className="text-blue-400">Boswell Web Development Solutions</strong>, we
+                believe the internet should do more than look good—it should{" "}
+                <em className="text-blue-300">work hard</em> for the people using it. Founded by
+                Charles Boswell, a U.S. Navy veteran and former U.S. Forest Service leader with over
+                two decades of government service, our company brings mission-driven precision to
+                every line of code.
               </p>
               <p className="text-lg text-gray-300 leading-relaxed">
-                We specialize in crafting responsive, accessible websites and AI-integrated tools for small businesses, nonprofits, and community-driven initiatives. Whether you&apos;re running an e-commerce store, starting a conservation project, or launching your next big idea, we design digital experiences that connect, engage, and scale with your goals.
+                We specialize in crafting responsive, accessible websites and AI-integrated tools
+                for small businesses, nonprofits, and community-driven initiatives. Whether you&apos;re
+                running an e-commerce store, starting a conservation project, or launching your next
+                big idea, we design digital experiences that connect, engage, and scale with your
+                goals.
               </p>
             </div>
           </motion.section>
@@ -92,17 +121,29 @@ export default function AboutPage() {
               <div className="lg:col-span-3">
                 <div className="flex items-center gap-3 mb-6">
                   <FaFire className="text-orange-500 text-2xl" />
-                  <h2 className="text-2xl md:text-3xl font-bold text-white">From the Field to the Future</h2>
+                  <h2 className="text-2xl md:text-3xl font-bold text-white">
+                    From the Field to the Future
+                  </h2>
                 </div>
 
                 <p className="text-gray-300 leading-relaxed mb-4">
-                  Charles spent 16 years managing wildfire operations, wildlife habitats, and high-stakes logistics. He brings that same level of grit, adaptability, and problem-solving to tech.
+                  Charles spent 16 years managing wildfire operations, wildlife habitats, and
+                  high-stakes logistics. He brings that same level of grit, adaptability, and
+                  problem-solving to tech.
                 </p>
                 <p className="text-gray-300 leading-relaxed mb-6">
-                  After graduating from Kable Academy&apos;s full-time Web Development & AI Bootcamp, he founded Boswell Web Development Solutions LLC in Lexington, Kentucky, with a mission: <strong className="text-blue-400">build tech that serves people, not the other way around</strong>.
+                  After graduating from Kable Academy&apos;s full-time Web Development & AI Bootcamp,
+                  he founded Boswell Web Development Solutions LLC in Lexington, Kentucky, with a
+                  mission:{" "}
+                  <strong className="text-blue-400">
+                    build tech that serves people, not the other way around
+                  </strong>
+                  .
                 </p>
                 <p className="text-gray-300 leading-relaxed mb-6">
-                  We blend strong technical fundamentals (React, Node.js, MongoDB, Firebase) with real-world insight and sharp UX thinking. Oh—and we&apos;re not afraid to integrate AI to give your site the edge it deserves.
+                  We blend strong technical fundamentals (React, Node.js, MongoDB, Firebase) with
+                  real-world insight and sharp UX thinking. Oh—and we&apos;re not afraid to integrate
+                  AI to give your site the edge it deserves.
                 </p>
 
                 <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-700">
@@ -168,18 +209,27 @@ export default function AboutPage() {
                     />
                   </div>
                   <div className="md:w-2/3">
-                    <h4 className="text-xl font-semibold text-white mb-2">Kentucky Bistro Restaurant Demo</h4>
+                    <h4 className="text-xl font-semibold text-white mb-2">
+                      Kentucky Bistro Restaurant Demo
+                    </h4>
                     <p className="text-gray-300 text-sm mb-3">
-                      Full-featured restaurant website showcasing online reservations, responsive design, 
-                      and accessibility compliance. Built in 2 days to demonstrate capabilities for local businesses.
+                      Full-featured restaurant website showcasing online reservations, responsive
+                      design, and accessibility compliance. Built in 2 days to demonstrate
+                      capabilities for local businesses.
                     </p>
                     <div className="flex flex-wrap gap-2 mb-4">
-                      <span className="px-2 py-1 bg-blue-600/20 text-blue-300 rounded text-xs font-medium">React</span>
-                      <span className="px-2 py-1 bg-green-600/20 text-green-300 rounded text-xs font-medium">Responsive</span>
-                      <span className="px-2 py-1 bg-purple-600/20 text-purple-300 rounded text-xs font-medium">Accessible</span>
+                      <span className="px-2 py-1 bg-blue-600/20 text-blue-300 rounded text-xs font-medium">
+                        React
+                      </span>
+                      <span className="px-2 py-1 bg-green-600/20 text-green-300 rounded text-xs font-medium">
+                        Responsive
+                      </span>
+                      <span className="px-2 py-1 bg-purple-600/20 text-purple-300 rounded text-xs font-medium">
+                        Accessible
+                      </span>
                     </div>
-                    <a 
-                      href="/restaurant-demo.html" 
+                    <a
+                      href="/restaurant-demo.html"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm font-semibold transition-colors inline-flex items-center gap-2"
@@ -191,24 +241,36 @@ export default function AboutPage() {
                 </div>
               </div>
               <div className="mt-4 text-center">
-                <p className="text-gray-400 text-sm">💡 This showcases the quality and features you can expect for your website</p>
+                <p className="text-gray-400 text-sm">
+                  💡 This showcases the quality and features you can expect for your website
+                </p>
               </div>
             </div>
           </motion.section>
 
           {/* Call to Action */}
-          <motion.section variants={itemVariants} className="text-center">
+          <motion.section variants={itemVariants} className="text-center mb-16">
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8">
-              <h2 className="text-3xl font-bold text-white mb-4">Let&apos;s Build Something That Matters</h2>
+              <h2 className="text-3xl font-bold text-white mb-4">
+                Let&apos;s Build Something That Matters
+              </h2>
               <p className="text-lg text-blue-100 mb-6 max-w-2xl mx-auto">
-                We&apos;re not just building websites. We&apos;re helping small businesses grow, environmental ideas take root, and local dreams go digital.
+                We&apos;re not just building websites. We&apos;re helping small businesses grow,
+                environmental ideas take root, and local dreams go digital.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Button onClick={() => navigate('/contact')} className="bg-white text-blue-600 hover:bg-gray-100 font-bold px-8 py-3 text-lg">
+                <Button
+                  onClick={() => navigate("/contact")}
+                  className="bg-white text-blue-600 hover:bg-gray-100 font-bold px-8 py-3 text-lg"
+                >
                   <FaEnvelope className="mr-2" />
                   Get Started Today
                 </Button>
-                <Button onClick={() => navigate('/portfolio')} variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 text-lg">
+                <Button
+                  onClick={() => navigate("/portfolio")}
+                  variant="outline"
+                  className="border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 text-lg"
+                >
                   View Our Work
                 </Button>
               </div>
@@ -216,6 +278,9 @@ export default function AboutPage() {
           </motion.section>
         </motion.div>
       </div>
+
+      {/* FAQ at the very bottom */}
+      <FAQSection />
     </>
   );
 }
