@@ -23,7 +23,7 @@ const Navbar = () => {
           <motion.div className="flex-shrink-0" whileHover={{ scale: 1.05 }}>
             <a href="/" className="flex items-center gap-2">
               <img
-                src="https://firebasestorage.googleapis.com/v0/b/endless-fire-467204-n2.firebasestorage.app/o/Siglogo.svg?alt=media&token=d2fc3840-b40d-408d-b85e-f250757bd593"
+                src="https://firebasestorage.googleapis.com/v0/b/endless-fire-467204-n2.firebasestorage.app/o/siglogo.webp?alt=media&token=43e15d27-e6fa-4fa0-b7c4-2972b1c1d03a"
                 alt="Boswell Web Development Solutions"
                 className="h-9 w-auto select-none"
                 width="180"

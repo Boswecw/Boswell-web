@@ -55,7 +55,7 @@ export default function LandingPage() {
             <motion.div variants={itemVariants} className='mb-12' animate={floatingAnimation}>
               <div className='relative'>
                 <img
-                  src='https://firebasestorage.googleapis.com/v0/b/endless-fire-467204-n2.firebasestorage.app/o/HeroBanner.png?alt=media&token=3f80f57a-533b-4f11-b312-b90ef8d991af'
+                  src='https://firebasestorage.googleapis.com/v0/b/endless-fire-467204-n2.firebasestorage.app/o/HeroBanner.webp?alt=media&token=166c48c7-919c-402e-9479-6e1583efba39'
                   alt='Boswell Web Development — Hero Banner'
                   className='mx-auto w-full max-w-5xl h-auto rounded-2xl shadow-2xl border border-blue-500/20'
                   loading='eager'
