@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from '@dr.pogodin/react-helmet';
 import LandingPage from './pages/LandingPage';
 import AboutPage from './pages/AboutPage';
+import ServicesPage from "@/pages/ServicesPage";
 import ContactPage from './pages/ContactPage';
 import Portfolio from './pages/Portfolio';
 import ResumePage from './pages/ResumePage';
@@ -22,6 +23,7 @@ function App() {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/resume" element={<ResumePage />} />
+            <Route path="/services" element={<ServicesPage />} />
             {/* Add a catch-all route for 404 pages */}
             <Route path="*" element={<LandingPage />} />
           </Routes>

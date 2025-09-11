@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { FaArrowLeft, FaGithub, FaExternalLinkAlt, FaRocket, FaStar } from "react-icons/fa";
+import {
+  FaArrowLeft,
+  FaGithub,
+  FaExternalLinkAlt,
+  FaRocket,
+  FaStar,
+} from "react-icons/fa";
 import { trackPortfolioView, trackProjectClick } from "@/utils/analytics";
-import BackToHomeButton from "@/components/BackToHomeButton";
 import SEOHead from "@/components/SEOHead";
+import Navbar from "@/components/Navbar";
 
 export default function Portfolio() {
   const [repos, setRepos] = useState([]);
@@ -19,8 +25,8 @@ export default function Portfolio() {
           throw new Error(`Failed to fetch repos: ${res.status} ${res.statusText}`);
         }
         const data = await res.json();
-        const sorted = data.sort((a, b) =>
-          new Date(b.updated_at) - new Date(a.updated_at)
+        const sorted = data.sort(
+          (a, b) => new Date(b.updated_at) - new Date(a.updated_at)
         );
         setRepos(sorted);
       } catch (err) {
@@ -36,16 +42,70 @@ export default function Portfolio() {
   // Featured demo projects
   const featuredProjects = [
     {
-      id: 'restaurant-demo',
-      name: 'Kentucky Bistro Restaurant',
-      description: 'Full-featured restaurant website with online reservations, menu display, and mobile-responsive design. Built to showcase modern web development capabilities for local Kentucky businesses.',
-      technologies: ['React', 'Tailwind CSS', 'Responsive Design', 'Accessibility'],
-      demoUrl: '/restaurant-demo.html',
-      image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&w=600&q=80',
-      type: 'Live Demo',
+      id: "furbabies",
+      name: "FurBabies Pet Store (MERN)",
+      description:
+        "Full-stack MERN app with MongoDB, JWT auth, admin dashboard, and Google Cloud Storage images. Product + pet listings with filters and infinite scroll.",
+      technologies: ["MongoDB", "Express", "React", "Node", "Tailwind"],
+      demoUrl: "https://furbabies-frontend.onrender.com/",
+      image:
+        "https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=1200&q=80&auto=format&fit=crop",
+      type: "Live Demo",
       featured: true,
-      buildTime: '2 days'
-    }
+      buildTime: "Ongoing",
+    },
+    {
+      id: "author-site",
+      name: "Author Site (SvelteKit + MongoDB)",
+      description:
+        "Author portfolio with featured books, blog, MongoDB Atlas content, and Netlify/Render-ready build. Clean, fast, and SEO-friendly.",
+      technologies: ["SvelteKit", "TypeScript", "Tailwind", "MongoDB"],
+      demoUrl: "https://author-site-w26m.onrender.com/",
+      image:
+        "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1200&q=80&auto=format&fit=crop",
+      type: "Live Demo",
+      featured: true,
+      buildTime: "3 days",
+    },
+    {
+      id: "portfolio",
+      name: "Portfolio (React)",
+      description:
+        "Personal portfolio showcasing services, live demos, and GitHub projects. Built with a clean, responsive UI and tracking hooks.",
+      technologies: ["React", "Tailwind", "Framer Motion"],
+      demoUrl: "https://boswecw.github.io/Portfolio/",
+      image:
+        "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=80&auto=format&fit=crop",
+      type: "Live Demo",
+      featured: true,
+      buildTime: "1 day",
+    },
+    {
+      id: "codepen-collection",
+      name: "CodePen UI Components",
+      description:
+        "A collection of interactive UI experiments, animations, and micro-demos. Great for rapid prototyping and idea exploration.",
+      technologies: ["HTML", "CSS", "JS", "UI/Animation"],
+      demoUrl: "https://codepen.io/Boswecw/collections/",
+      image:
+        "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&q=80&auto=format&fit=crop",
+      type: "Live Demo",
+      featured: true,
+      buildTime: "Various",
+    },
+    {
+      id: "restaurant-demo",
+      name: "Kentucky Bistro Restaurant",
+      description:
+        "Full-featured restaurant website with online reservations, menu display, and mobile-responsive design. Built to showcase modern web development capabilities for local Kentucky businesses.",
+      technologies: ["React", "Tailwind CSS", "Responsive Design", "Accessibility"],
+      demoUrl: "/restaurant-demo.html",
+      image:
+        "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&w=1200&q=80&auto=format&fit=crop",
+      type: "Live Demo",
+      featured: true,
+      buildTime: "2 days",
+    },
   ];
 
   return (
@@ -58,11 +118,15 @@ export default function Portfolio() {
       />
 
       <div className="min-h-screen bg-gray-950 text-white">
-        {/* Navigation Header */}
-        <nav className="bg-gray-900 border-b border-gray-800 px-6 py-4">
-          <div className="max-w-7xl mx-auto flex items-center justify-between">
-            <BackToHomeButton />
-            <div className="flex items-center gap-4">
+        {/* Global Navbar */}
+        <Navbar />
+
+        {/* Main Content */}
+        <div className="p-6 pt-24">
+          <div className="max-w-7xl mx-auto">
+            {/* Header */}
+            <div className="flex items-center justify-between mb-6">
+              <div />
               <a
                 href="https://github.com/Boswecw"
                 target="_blank"
@@ -73,18 +137,14 @@ export default function Portfolio() {
                 <span className="hidden sm:inline">GitHub Profile</span>
               </a>
             </div>
-          </div>
-        </nav>
 
-        {/* Main Content */}
-        <div className="p-6">
-          <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
               <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 via-white to-blue-400 bg-clip-text text-transparent">
                 Portfolio & Live Demos
               </h1>
               <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-                Explore live website demos and GitHub projects showcasing modern web development with React, AI integration, and responsive design.
+                Explore live website demos and GitHub projects showcasing modern web
+                development with React, AI integration, and responsive design.
               </p>
             </div>
 
@@ -94,7 +154,7 @@ export default function Portfolio() {
                 <FaStar className="text-yellow-400 text-xl" />
                 <h2 className="text-3xl font-bold text-white">Featured Live Demos</h2>
               </div>
-              
+
               <div className="grid gap-8 grid-cols-1 lg:grid-cols-2">
                 {featuredProjects.map((project) => (
                   <div
@@ -157,7 +217,9 @@ export default function Portfolio() {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 flex items-center justify-center gap-2"
-                          onClick={() => trackProjectClick(project.name, project.demoUrl, "demo")}
+                          onClick={() =>
+                            trackProjectClick(project.name, project.demoUrl, "demo")
+                          }
                         >
                           <FaExternalLinkAlt className="text-sm" />
                           View Live Demo
@@ -167,7 +229,8 @@ export default function Portfolio() {
                       {/* Demo Note */}
                       <div className="mt-4 p-3 bg-gray-900/50 rounded-lg border border-gray-700">
                         <p className="text-gray-400 text-sm">
-                          💡 <strong>For Potential Clients:</strong> This demo showcases the quality and features you can expect for your business website.
+                          💡 <strong>For Potential Clients:</strong> This demo showcases the
+                          quality and features you can expect for your business website.
                         </p>
                       </div>
                     </div>
@@ -255,7 +318,9 @@ export default function Portfolio() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1 text-blue-400 hover:text-blue-300 transition-colors duration-200"
-                        onClick={() => trackProjectClick(repo.name, repo.html_url, "repo")}
+                        onClick={() =>
+                          trackProjectClick(repo.name, repo.html_url, "repo")
+                        }
                       >
                         <FaGithub className="text-xs" />
                         View Repo
@@ -266,7 +331,9 @@ export default function Portfolio() {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-1 text-green-400 hover:text-green-300 transition-colors duration-200"
-                          onClick={() => trackProjectClick(repo.name, repo.homepage, "demo")}
+                          onClick={() =>
+                            trackProjectClick(repo.name, repo.homepage, "demo")
+                          }
                         >
                           <FaExternalLinkAlt className="text-xs" />
                           Live Demo
@@ -304,15 +371,17 @@ export default function Portfolio() {
                 Ready for Your Custom Website?
               </h3>
               <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-                These demos showcase the quality and features you can expect. Get your professional website with the same attention to detail and modern technology.
+                These demos showcase the quality and features you can expect. Get your
+                professional website with the same attention to detail and modern
+                technology.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <a
                   href="/contact"
-                  className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg font-bold transition-all duration-200 transform hover:scale-105 inline-flex items-center gap-2"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-bold transition-all duration-200 transform hover:scale-105 inline-flex items-center gap-2"
                 >
                   <FaRocket />
-                  Get 50% Off - First 3 Clients
+                  Start Your Project
                 </a>
                 <a
                   href="/about"

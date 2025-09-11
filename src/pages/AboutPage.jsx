@@ -1,20 +1,17 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/Button";
 import { FaArrowLeft, FaEnvelope, FaCog, FaGlobe, FaBrain, FaMobile, FaFire, FaTree, FaCode, FaGraduationCap, FaFlag, FaExternalLinkAlt } from "react-icons/fa";
 import SEOHead from "@/components/SEOHead";
+import Navbar from "@/components/Navbar";
 
 export default function AboutPage() {
   const navigate = useNavigate();
 
   const containerVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, staggerChildren: 0.1 }
-    }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, staggerChildren: 0.1 } }
   };
 
   const itemVariants = {
@@ -30,14 +27,11 @@ export default function AboutPage() {
         keywords="about boswell web development, charles boswell veteran, navy veteran web developer, lexington kentucky web development, veteran owned business"
         url="https://boswellwebdevelopment.com/about"
       />
-      
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-black text-white p-6">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="max-w-4xl mx-auto"
-        >
+
+      <Navbar />
+
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-black text-white pt-24 p-6">
+        <motion.div variants={containerVariants} initial="hidden" animate="visible" className="max-w-4xl mx-auto">
           {/* Header */}
           <motion.div variants={itemVariants} className="mb-8">
             <Button
@@ -75,7 +69,7 @@ export default function AboutPage() {
           {/* From Field to Future */}
           <motion.section variants={itemVariants} className="mb-16">
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-center">
-              {/* Photo Section - Now smaller */}
+              {/* Photo */}
               <div className="lg:col-span-1">
                 <div className="relative max-w-xs mx-auto">
                   <div className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl p-1">
@@ -86,8 +80,6 @@ export default function AboutPage() {
                       loading="lazy"
                     />
                   </div>
-                  
-                  {/* Photo Caption */}
                   <div className="mt-4 text-center">
                     <h3 className="text-white font-semibold">Charles Boswell</h3>
                     <p className="text-gray-400 text-sm">Founder & Lead Developer</p>
@@ -95,32 +87,26 @@ export default function AboutPage() {
                   </div>
                 </div>
               </div>
-              
-              {/* Text Content - Now takes up more space */}
+
+              {/* Text */}
               <div className="lg:col-span-3">
                 <div className="flex items-center gap-3 mb-6">
                   <FaFire className="text-orange-500 text-2xl" />
-                  <h2 className="text-2xl md:text-3xl font-bold text-white">
-                    From the Field to the Future
-                  </h2>
+                  <h2 className="text-2xl md:text-3xl font-bold text-white">From the Field to the Future</h2>
                 </div>
-                
+
                 <p className="text-gray-300 leading-relaxed mb-4">
                   Charles spent 16 years managing wildfire operations, wildlife habitats, and high-stakes logistics. He brings that same level of grit, adaptability, and problem-solving to tech.
                 </p>
-                
                 <p className="text-gray-300 leading-relaxed mb-6">
                   After graduating from Kable Academy&apos;s full-time Web Development & AI Bootcamp, he founded Boswell Web Development Solutions LLC in Lexington, Kentucky, with a mission: <strong className="text-blue-400">build tech that serves people, not the other way around</strong>.
                 </p>
-                
                 <p className="text-gray-300 leading-relaxed mb-6">
                   We blend strong technical fundamentals (React, Node.js, MongoDB, Firebase) with real-world insight and sharp UX thinking. Oh—and we&apos;re not afraid to integrate AI to give your site the edge it deserves.
                 </p>
-                
-                {/* Experience Timeline */}
+
                 <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-700">
                   <h3 className="text-white font-semibold mb-6 text-center">Charles&apos;s Journey</h3>
-                  
                   <div className="space-y-4">
                     <div className="flex items-start gap-3">
                       <div className="bg-blue-600 w-3 h-3 rounded-full mt-2 flex-shrink-0"></div>
@@ -132,7 +118,6 @@ export default function AboutPage() {
                         <p className="text-gray-400 text-sm">Military service with discipline and leadership</p>
                       </div>
                     </div>
-                    
                     <div className="flex items-start gap-3">
                       <div className="bg-green-600 w-3 h-3 rounded-full mt-2 flex-shrink-0"></div>
                       <div>
@@ -143,7 +128,6 @@ export default function AboutPage() {
                         <p className="text-gray-400 text-sm">Wildfire operations & habitat management</p>
                       </div>
                     </div>
-                    
                     <div className="flex items-start gap-3">
                       <div className="bg-purple-600 w-3 h-3 rounded-full mt-2 flex-shrink-0"></div>
                       <div>
@@ -154,7 +138,6 @@ export default function AboutPage() {
                         <p className="text-gray-400 text-sm">Web Development & AI Bootcamp</p>
                       </div>
                     </div>
-                    
                     <div className="flex items-start gap-3">
                       <div className="bg-yellow-600 w-3 h-3 rounded-full mt-2 flex-shrink-0"></div>
                       <div>
@@ -171,110 +154,10 @@ export default function AboutPage() {
             </div>
           </motion.section>
 
-          {/* What Sets Us Apart */}
-          <motion.section variants={itemVariants} className="mb-16">
-            <h2 className="text-3xl font-bold text-center text-white mb-8">What Sets Us Apart</h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <motion.div 
-                whileHover={{ scale: 1.02 }}
-                className="bg-gray-800/50 rounded-lg p-6 border border-gray-700"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="bg-red-600 p-3 rounded-lg flex-shrink-0">
-                    <FaCog className="text-white text-xl" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-white mb-2">Veteran-Owned and Operated</h3>
-                    <p className="text-gray-300">
-                      We bring discipline, trust, and accountability to every project.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div 
-                whileHover={{ scale: 1.02 }}
-                className="bg-gray-800/50 rounded-lg p-6 border border-gray-700"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="bg-green-600 p-3 rounded-lg flex-shrink-0">
-                    <FaGlobe className="text-white text-xl" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-white mb-2">Mission-Driven Design</h3>
-                    <p className="text-gray-300">
-                      From environmental science to retail, we align your site with your purpose and values.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div 
-                whileHover={{ scale: 1.02 }}
-                className="bg-gray-800/50 rounded-lg p-6 border border-gray-700"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="bg-blue-600 p-3 rounded-lg flex-shrink-0">
-                    <FaBrain className="text-white text-xl" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-white mb-2">Future-Focused Development</h3>
-                    <p className="text-gray-300">
-                      We integrate modern tools like AI, chatbots, and predictive analytics to help your users—and your business—thrive.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div 
-                whileHover={{ scale: 1.02 }}
-                className="bg-gray-800/50 rounded-lg p-6 border border-gray-700"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="bg-purple-600 p-3 rounded-lg flex-shrink-0">
-                    <FaMobile className="text-white text-xl" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-white mb-2">Cross-Platform Thinking</h3>
-                    <p className="text-gray-300">
-                      Every site we build works seamlessly on desktop and mobile—because your audience isn&apos;t just sitting at a desk.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </motion.section>
-
-          {/* Tech Stack */}
-          <motion.section variants={itemVariants} className="mb-16">
-            <div className="bg-gray-800/30 rounded-lg p-8 border border-gray-700">
-              <h3 className="text-2xl font-bold text-center text-white mb-6">Our Technical Foundation</h3>
-              
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {[
-                  { name: 'React', color: 'text-blue-400' },
-                  { name: 'Node.js', color: 'text-green-400' },
-                  { name: 'MongoDB', color: 'text-green-500' },
-                  { name: 'Firebase', color: 'text-yellow-400' },
-                  { name: 'AI Integration', color: 'text-purple-400' },
-                  { name: 'Responsive Design', color: 'text-pink-400' },
-                  { name: 'SEO Optimization', color: 'text-orange-400' },
-                  { name: 'Security Best Practices', color: 'text-red-400' }
-                ].map((tech, index) => (
-                  <div key={index} className="text-center p-3 bg-gray-900/50 rounded-lg">
-                    <div className={`font-semibold ${tech.color}`}>{tech.name}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </motion.section>
-
           {/* Sample Work */}
           <motion.section variants={itemVariants} className="mb-16">
             <div className="bg-gray-800/30 rounded-lg p-8 border border-gray-700">
               <h3 className="text-2xl font-bold text-center text-white mb-6">Sample Work</h3>
-              
               <div className="bg-gray-900/50 rounded-xl p-6 border border-gray-600">
                 <div className="flex flex-col md:flex-row items-center gap-6">
                   <div className="md:w-1/3">
@@ -307,11 +190,8 @@ export default function AboutPage() {
                   </div>
                 </div>
               </div>
-              
               <div className="mt-4 text-center">
-                <p className="text-gray-400 text-sm">
-                  💡 This showcases the quality and features you can expect for your website
-                </p>
+                <p className="text-gray-400 text-sm">💡 This showcases the quality and features you can expect for your website</p>
               </div>
             </div>
           </motion.section>
@@ -319,33 +199,18 @@ export default function AboutPage() {
           {/* Call to Action */}
           <motion.section variants={itemVariants} className="text-center">
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8">
-              <h2 className="text-3xl font-bold text-white mb-4">
-                Let&apos;s Build Something That Matters
-              </h2>
+              <h2 className="text-3xl font-bold text-white mb-4">Let&apos;s Build Something That Matters</h2>
               <p className="text-lg text-blue-100 mb-6 max-w-2xl mx-auto">
                 We&apos;re not just building websites. We&apos;re helping small businesses grow, environmental ideas take root, and local dreams go digital.
               </p>
-              
               <div className="flex flex-wrap justify-center gap-4">
-                <Button
-                  onClick={() => navigate('/contact')}
-                  className="bg-white text-blue-600 hover:bg-gray-100 font-bold px-8 py-3 text-lg"
-                >
+                <Button onClick={() => navigate('/contact')} className="bg-white text-blue-600 hover:bg-gray-100 font-bold px-8 py-3 text-lg">
                   <FaEnvelope className="mr-2" />
                   Get Started Today
                 </Button>
-                
-                <Button
-                  onClick={() => navigate('/portfolio')}
-                  variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 text-lg"
-                >
+                <Button onClick={() => navigate('/portfolio')} variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 text-lg">
                   View Our Work
                 </Button>
-              </div>
-              
-              <div className="mt-6 text-blue-200 text-sm">
-                🎯 <strong>First Customer Special:</strong> 50% off your first website - Limited to 3 clients
               </div>
             </div>
           </motion.section>
