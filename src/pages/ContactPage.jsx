@@ -117,7 +117,7 @@ export default function ContactPage() {
     message: "",
   });
 
-  // UI state for AJAX + toast
+  // UI state for AJAX + toast working?
   const [submitting, setSubmitting] = useState(false);
   const [toast, setToast] = useState({ type: null, msg: "" }); // type: 'success' | 'error' | null
 
