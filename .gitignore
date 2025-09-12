@@ -131,3 +131,6 @@ Thumbs.db
 .env.production
 # Ignore specific files in the src directory*:[Zz]one.Identifier
 *:[Zz]one.Identifier
+
+# Local Netlify folder
+.netlify
