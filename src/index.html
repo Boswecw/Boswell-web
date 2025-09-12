@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -12,8 +12,7 @@
 
     <!-- Apple icons for splash screen -->
     <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-192.png" />
-    <link rel="icon" href="/favicon.ico">
-
+    <link rel="icon" href="/favicon.ico" />
   </head>
   <body>
     <div id="root"></div>
@@ -25,17 +24,31 @@
       netlify-honeypot="bot-field"
       hidden
     >
+      <!-- Required Netlify fields -->
       <input type="hidden" name="form-name" value="contact" />
-      <input name="name" />
-      <input name="email" />
-      <input name="company" />
-      <input name="timeline" />
-      <input name="budget" />
-      <input name="selectedPackageId" />
-      <input name="selectedPackageName" />
-      <input name="selectedPackagePrice" />
-      <input name="projectType" />
+
+      <!-- Honeypot field -->
+      <input name="bot-field" />
+
+      <!-- Main form fields - MUST match React form -->
+      <input name="name" type="text" />
+      <input name="email" type="email" />
+      <input name="company" type="text" />
+      <select name="timeline">
+        <option value="1–2 weeks">1–2 weeks</option>
+        <option value="2–3 weeks">2–3 weeks</option>
+        <option value="3–5 weeks">3–5 weeks</option>
+        <option value="1–2 months">1–2 months</option>
+        <option value="Flexible">Flexible</option>
+      </select>
+      <input name="budget" type="text" />
       <textarea name="message"></textarea>
+
+      <!-- Hidden metadata fields -->
+      <input name="projectType" type="hidden" />
+      <input name="selectedPackageId" type="hidden" />
+      <input name="selectedPackageName" type="hidden" />
+      <input name="selectedPackagePrice" type="hidden" />
     </form>
   </body>
 </html>

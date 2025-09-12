@@ -112,14 +112,14 @@ export default function ContactPage() {
     email: "",
     company: "",
     projectType: "web-development",
-    budget: defaultPkg.price,
-    timeline: defaultPkg.timeline,
+    budget: defaultPkg?.price || "$900 – $1,500",
+    timeline: defaultPkg?.timeline || "1–2 weeks",
     message: "",
   });
 
-  // UI state for AJAX + toast working?
+  // UI state for AJAX + toast working
   const [submitting, setSubmitting] = useState(false);
-  const [toast, setToast] = useState({ type: null, msg: "" }); // type: 'success' | 'error' | null
+  const [toast, setToast] = useState({ type: null, msg: "" });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -128,6 +128,8 @@ export default function ContactPage() {
 
   const handlePackageSelect = (packageId) => {
     const selected = packages.find((pkg) => pkg.id === packageId);
+    if (!selected) return;
+    
     setSelectedPackage(packageId);
     setFormData((prev) => ({
       ...prev,
@@ -138,7 +140,7 @@ export default function ContactPage() {
     trackPackageSelection(selected.name);
   };
 
-  // AJAX submit to Netlify (no page reload)
+  // FIXED: Enhanced form submission handler
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (submitting) return;
@@ -148,43 +150,79 @@ export default function ContactPage() {
 
     try {
       const formEl = e.currentTarget;
+      const selected = packages.find((pkg) => pkg.id === selectedPackage);
+      
+      // Create FormData from the actual form
       const data = new FormData(formEl);
+      
+      // CRITICAL FIX: Ensure form-name is set
+      data.set("form-name", "contact");
+      
+      // CRITICAL FIX: Manually add all the state values to ensure they're included
+      data.set("name", formData.name);
+      data.set("email", formData.email);
+      data.set("company", formData.company);
+      data.set("timeline", formData.timeline);
+      data.set("budget", formData.budget);
+      data.set("message", formData.message);
+      data.set("projectType", formData.projectType);
+      
+      // Add package selection data
+      data.set("selectedPackageId", selectedPackage);
+      data.set("selectedPackageName", selected?.name || "");
+      data.set("selectedPackagePrice", selected?.price || "");
 
-      // Netlify requires form-name in the payload
-      if (!data.get("form-name")) data.set("form-name", formEl.getAttribute("name"));
+      // CRITICAL FIX: Convert FormData to URLSearchParams properly
+      const formParams = new URLSearchParams();
+      for (let [key, value] of data.entries()) {
+        formParams.append(key, value);
+      }
+
+      // Debug logging (remove in production)
+      console.log("Submitting form data:", Object.fromEntries(formParams.entries()));
 
       const res = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams([...data]).toString(),
+        body: formParams.toString(),
       });
 
-      if (!res.ok) throw new Error(`Netlify form POST failed: ${res.status}`);
+      if (!res.ok) {
+        throw new Error(`Netlify form POST failed: ${res.status} ${res.statusText}`);
+      }
 
-      // analytics
+      // Success handling
       trackContactFormSubmit(
         packages.find((p) => p.id === selectedPackage)?.name || "no_package_selected"
       );
 
-      // success toast
-      setToast({ type: "success", msg: "Thanks — message received. I’ll reply within 24 hours." });
+      setToast({ 
+        type: "success", 
+        msg: "Thanks — message received. I'll reply within 24 hours." 
+      });
 
-      // optional: clear inputs after success
-      setFormData((prev) => ({
-        ...prev,
+      // Clear form and reset to defaults
+      setFormData({
         name: "",
         email: "",
         company: "",
+        projectType: "web-development",
+        budget: defaultPkg?.price || "$900 – $1,500",
+        timeline: defaultPkg?.timeline || "1–2 weeks",
         message: "",
-      }));
+      });
 
-      // auto-hide toast after 4s
+      // Reset package selection to default
+      setSelectedPackage("starter");
+
+      // Auto-hide toast after 4s
       setTimeout(() => setToast({ type: null, msg: "" }), 4000);
+      
     } catch (err) {
+      console.error("Form submission error:", err);
       setToast({
         type: "error",
-        msg:
-          "Submit failed. Please check your connection and try again, or email charlesboswell@boswellwebdevelopment.com.",
+        msg: "Submit failed. Please check your connection and try again, or email charlesboswell@boswellwebdevelopment.com.",
       });
       setTimeout(() => setToast({ type: null, msg: "" }), 6000);
     } finally {
@@ -323,6 +361,17 @@ export default function ContactPage() {
                   Project Details
                 </h2>
 
+                {/* Debug Info - Remove in production */}
+                {process.env.NODE_ENV === 'development' && (
+                  <div style={{ background: '#333', color: '#fff', padding: '10px', margin: '10px 0', fontSize: '12px' }}>
+                    <h4>Debug Info:</h4>
+                    <p>Selected Package: {selectedPackage}</p>
+                    <p>Budget: {formData.budget}</p>
+                    <p>Timeline: {formData.timeline}</p>
+                    <p>Project Type: {formData.projectType}</p>
+                  </div>
+                )}
+
                 {/* Netlify-form (AJAX) */}
                 <form
                   name="contact"
@@ -336,7 +385,7 @@ export default function ContactPage() {
                   <input type="hidden" name="form-name" value="contact" />
                   <p hidden>
                     <label>
-                      Don’t fill this out: <input name="bot-field" />
+                      Don't fill this out: <input name="bot-field" />
                     </label>
                   </p>
 
@@ -406,6 +455,7 @@ export default function ContactPage() {
                         <option value="1–2 weeks">1–2 weeks</option>
                         <option value="2–3 weeks">2–3 weeks</option>
                         <option value="3–5 weeks">3–5 weeks</option>
+                        <option value="1–2 months">1–2 months</option>
                         <option value="Flexible">Flexible</option>
                       </select>
                     </div>
@@ -444,11 +494,21 @@ export default function ContactPage() {
                     disabled={submitting}
                     className={`w-full text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-200 transform ${
                       submitting
-                        ? "bg-blue-800 cursor-not-allowed"
+                        ? "bg-blue-800 cursor-not-allowed opacity-50"
                         : "bg-blue-600 hover:bg-blue-700 hover:scale-105"
                     }`}
                   >
-                    {submitting ? "Sending..." : "Send Project Request →"}
+                    {submitting ? (
+                      <span className="flex items-center justify-center gap-2">
+                        <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                          <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                          <path fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                        </svg>
+                        Sending...
+                      </span>
+                    ) : (
+                      "Send Project Request →"
+                    )}
                   </Button>
                 </form>
               </motion.div>
@@ -566,7 +626,7 @@ export default function ContactPage() {
           </motion.div>
         </div>
 
-        {/* Toasts */}
+        {/* Enhanced Toast Notifications */}
         <AnimatePresence>
           {toast.type && (
             <motion.div
@@ -574,13 +634,16 @@ export default function ContactPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
-              className={`fixed bottom-4 right-4 z-[100] rounded-lg px-4 py-3 shadow-lg border ${
+              className={`fixed bottom-4 right-4 z-[100] rounded-lg px-4 py-3 shadow-lg border max-w-md ${
                 toast.type === "success"
                   ? "bg-green-900/80 border-green-600 text-green-100"
                   : "bg-red-900/80 border-red-600 text-red-100"
               }`}
             >
-              {toast.msg}
+              <div className="flex items-center gap-2">
+                {toast.type === "success" ? "✅" : "❌"}
+                <span>{toast.msg}</span>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
