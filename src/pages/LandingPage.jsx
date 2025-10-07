@@ -42,7 +42,7 @@ export default function LandingPage() {
   return (
     <>
       <SEOHead
-        title="Boswell Web Development Solutions LLC - Custom React Websites | Lexington, KY"
+        title="Boswell Digital Solutions LLC - Custom React Websites | Lexington, KY"
         description="Veteran-owned web development company in Lexington, KY. Custom React websites, AI integration, and business automation. Professional, reliable, military-grade precision."
         keywords="web development lexington ky, react developer kentucky, veteran owned business, custom websites, AI integration, MERN stack, web design lexington"
         url="https://boswellwebdevelopment.com"
