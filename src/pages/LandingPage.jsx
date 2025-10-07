@@ -158,7 +158,8 @@ export default function LandingPage() {
               </motion.a>
               <motion.a
                 href="mailto:charlesboswell@boswellwebdevelopment.com"
-                whileHover={{ scale: 1.2, y: -5 }}
+                onClick={() => trackSocialClick('Email')}
+                whileHover={{ scale: 1.1, color: "#ea4335" }}
                 whileTap={{ scale: 0.95 }}
                 className="text-gray-300 hover:text-red-400 transition-colors p-3 bg-gray-800/30 rounded-full border border-gray-700 hover:border-red-400"
               >
