@@ -92,7 +92,7 @@ export default function LandingPage() {
               className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 tracking-wide"
             >
               <span className="bg-gradient-to-r from-blue-400 via-white to-blue-400 bg-clip-text text-transparent">
-                Boswell Web Development
+                Boswell Digital
               </span>
               <br />
               <span className="text-3xl md:text-4xl lg:text-5xl text-gray-300 font-light">
