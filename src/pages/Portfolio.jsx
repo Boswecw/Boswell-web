@@ -111,7 +111,7 @@ export default function Portfolio() {
   return (
     <>
       <SEOHead
-        title="Portfolio & Live Demos | Boswell Web Development"
+        title="Portfolio & Live Demos | Boswell Digital Solutions"
         description="View live demos and GitHub projects by Charles Boswell. Custom React websites, restaurant demos, and full-stack applications built with military-grade precision."
         keywords="portfolio, live demos, React developer, restaurant website demo, GitHub projects, veteran web developer, Charles Boswell"
         url="https://boswellwebdevelopment.com/portfolio"

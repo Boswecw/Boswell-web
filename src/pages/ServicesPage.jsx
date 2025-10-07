@@ -130,8 +130,8 @@ export default function ServicesPage() {
   return (
     <>
       <SEOHead
-        title="Services | Boswell Web Development Solutions LLC"
-        description="Custom React websites, business sites, eCommerce, and bespoke web apps. Veteran-owned, Lexington KY. Accessibility-first, SEO-ready, and performance focused."
+        title="Services | Boswell Digital Solutions LLC"
+        description="Custom React websites, business sites, eCommerce, and bespoke digital solutions. Veteran-owned, Lexington KY. Accessibility-first, SEO-ready, and performance focused."
         keywords="web development services, react developer, ecommerce development, custom web app, lexington ky"
         url="https://boswellwebdevelopment.com/services"
       />

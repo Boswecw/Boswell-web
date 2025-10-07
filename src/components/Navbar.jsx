@@ -24,14 +24,14 @@ const Navbar = () => {
             <a href="/" className="flex items-center gap-2">
               <img
                 src="https://firebasestorage.googleapis.com/v0/b/endless-fire-467204-n2.firebasestorage.app/o/siglogo.webp?alt=media&token=43e15d27-e6fa-4fa0-b7c4-2972b1c1d03a"
-                alt="Boswell Web Development Solutions"
+                alt="Boswell Digital Solutions"
                 className="h-9 w-auto select-none"
                 width="180"
                 height="36"
                 loading="eager"
                 decoding="async"
               />
-              <span className="sr-only">BWD Solutions</span>
+              <span className="sr-only">Boswell Digital Solutions</span>
             </a>
           </motion.div>
 

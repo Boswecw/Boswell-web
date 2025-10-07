@@ -37,9 +37,9 @@ export default function AboutPage() {
   return (
     <>
       <SEOHead
-        title="About Boswell Web Development Solutions | Veteran-Owned Web Development"
-        description="Learn about Charles Boswell, U.S. Navy veteran and founder of Boswell Web Development Solutions. From 20+ years of government service to cutting-edge web development in Lexington, KY."
-        keywords="about boswell web development, charles boswell veteran, navy veteran web developer, lexington kentucky web development, veteran owned business"
+        title="About Boswell Digital Solutions | Veteran-Owned Digital Solutions"
+        description="Learn about Charles Boswell, U.S. Navy veteran and founder of Boswell Digital Solutions. From 20+ years of government service to cutting-edge digital solutions in Lexington, KY."
+        keywords="about boswell digital solutions, charles boswell veteran, navy veteran web developer, lexington kentucky digital solutions, veteran owned business"
         url="https://boswellwebdevelopment.com/about"
       />
 

@@ -1,8 +1,8 @@
-# Boswell Web Development Solutions LLC
+# Boswell Digital Solutions LLC
 
 🔗 [Live Site](https://boswellwebdevelopment.com)
 
-A modern, responsive portfolio website built with React and Vite, showcasing web development projects and services.
+A modern, responsive portfolio website built with React and Vite, showcasing digital solutions projects and services.
 
 ![MIT License](https://img.shields.io/badge/license-MIT-blue)
 

@@ -23,7 +23,7 @@ export default function ResumePage() {
     <>
       <SEOHead 
         title="Charles Boswell Resume - Full-Stack Developer & Military Veteran"
-        description="Resume of Charles Boswell - Full-stack web developer, military veteran, and founder of Boswell Web Development Solutions LLC. MERN stack, React, AI integration expertise."
+        description="Resume of Charles Boswell - Full-stack web developer, military veteran, and founder of Boswell Digital Solutions LLC. MERN stack, React, AI integration expertise."
         keywords="charles boswell resume, full stack developer resume, veteran web developer, react developer resume, lexington ky developer"
         url="https://boswellwebdevelopment.com/resume"
       />

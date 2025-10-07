@@ -244,8 +244,8 @@ export default function ContactPage() {
   return (
     <>
       <SEOHead
-        title="Web Development Pricing & Contact | Boswell Web Development Solutions"
-        description="Custom React websites, business sites, eCommerce, and bespoke web apps. Transparent pricing and timelines. Veteran-owned in Lexington, Kentucky."
+        title="Digital Solutions Pricing & Contact | Boswell Digital Solutions LLC"
+        description="Custom React websites, business sites, eCommerce, and bespoke digital solutions. Transparent pricing and timelines. Veteran-owned in Lexington, Kentucky."
         keywords="web development pricing, website quote lexington ky, react developer rates, ecommerce development, custom web app"
         url="https://boswellwebdevelopment.com/contact"
       />
@@ -275,7 +275,7 @@ export default function ContactPage() {
                 Let&apos;s Work Together
               </h1>
               <p className="text-center text-gray-400 text-lg">
-                Veteran-owned web development with military-grade precision
+                Veteran-owned digital solutions with military-grade precision
               </p>
             </motion.div>
 
