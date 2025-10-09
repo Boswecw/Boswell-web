@@ -97,7 +97,7 @@ export default function Portfolio() {
       id: "restaurant-demo",
       name: "Kentucky Bistro Restaurant",
       description:
-        "Full-featured restaurant website with online reservations, menu display, and mobile-responsive design. Built to showcase modern web development capabilities for local Kentucky businesses.",
+        "Full-featured restaurant website with online reservations, menu display, and mobile-responsive design. Built to showcase modern digital solutions capabilities for local Kentucky businesses.",
       technologies: ["React", "Tailwind CSS", "Responsive Design", "Accessibility"],
       demoUrl: "/restaurant-demo.html",
       image:
@@ -114,7 +114,7 @@ export default function Portfolio() {
         title="Portfolio & Live Demos | Boswell Digital Solutions"
         description="View live demos and GitHub projects by Charles Boswell. Custom React websites, restaurant demos, and full-stack applications built with military-grade precision."
         keywords="portfolio, live demos, React developer, restaurant website demo, GitHub projects, veteran web developer, Charles Boswell"
-        url="https://boswellwebdevelopment.com/portfolio"
+        url="https://boswelldigitalsolutions.com/portfolio"
       />
 
       <div className="min-h-screen bg-gray-950 text-white">

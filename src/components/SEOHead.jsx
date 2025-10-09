@@ -5,8 +5,8 @@ import { Helmet } from '@dr.pogodin/react-helmet';
 export default function SEOHead({
   title = "Boswell Digital Solutions LLC",
   description = "Veteran-owned digital solutions company in Lexington, KY. Custom React websites, AI integration, and business automation. Starting at $750.",
-  keywords = "web development, react developer, lexington ky, veteran owned business, custom websites, AI integration",
-  url = "https://boswellwebdevelopment.com",
+  keywords = "digital solutions, react developer, lexington ky, veteran owned business, custom websites, AI integration",
+  url = "https://boswelldigitalsolutions.com",
   image = "https://storage.googleapis.com/boswellwebdevsolutionsllc/75C2B6B4-7539-4C70-BB2E-D97E39E038D5.JPG"
 }) {
   return (
@@ -46,7 +46,7 @@ export default function SEOHead({
           "description": description,
           "url": url,
           "telephone": "(859) 436-7304",
-          "email": "charlesboswell@boswellwebdevelopment.com",
+          "email": "charlesboswell@boswelldigitalsolutions.com",
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Lexington",

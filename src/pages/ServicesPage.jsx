@@ -17,6 +17,9 @@ import {
   FaTools,
   FaHandshake,
   FaClipboardCheck,
+  FaRobot,
+  FaLock,
+  FaChartBar,
 } from "react-icons/fa";
 
 const container = {
@@ -44,86 +47,87 @@ export default function ServicesPage() {
       blurb:
         "A clean, fast, custom-coded site for portfolios and small businesses.",
       bullets: [
-        "Custom React components (no templates)",
-        "Responsive & accessible (WCAG 2.1)",
-        "Contact form + basic SEO",
-        "Deployed with best practices",
+        "Built with React or SvelteKit — no generic templates",
+        "Fully responsive and accessible (WCAG 2.1)",
+        "Contact form + foundational SEO",
+        "Deployed with performance best practices",
       ],
-      meta: { timeline: "~1–2 weeks" },
+      meta: { timeline: "1–2 weeks" },
     },
     {
       id: "business",
       icon: FaCogs,
       title: "Business Website",
       blurb:
-        "Marketing site plus content tools and integrations for growing teams.",
+        "Marketing site with content tools, integrations, and room to grow.",
       bullets: [
         "CMS/admin for easy updates",
-        "Multiple forms & analytics",
-        "Performance & image optimization",
-        "Google Business/Maps integration",
+        "Advanced forms & analytics",
+        "Optimized for performance and SEO",
+        "Google Maps & Workspace integration",
       ],
-      meta: { timeline: "~2–3 weeks" },
+      meta: { timeline: "2–3 weeks" },
     },
     {
       id: "ecommerce",
       icon: FaShoppingCart,
       title: "eCommerce",
       blurb:
-        "Modern storefront with secure checkout, dashboards, and inventory.",
+        "Modern storefront with secure checkout, dashboards, and inventory tools.",
       bullets: [
-        "Stripe/PayPal integration",
+        "Stripe or PayPal integration",
         "Product catalog & order management",
-        "Customer accounts & email receipts",
-        "Speed & SEO tuned for conversions",
+        "Customer accounts & receipts",
+        "Tuned for speed and conversion",
       ],
-      meta: { timeline: "~3–5 weeks" },
+      meta: { timeline: "3–5 weeks" },
     },
     {
       id: "custom-app",
       icon: FaRocket,
       title: "Custom Web App",
       blurb:
-        "Bespoke applications, dashboards, and workflow automation tailored to your ops.",
+        "Bespoke dashboards, portals, and AI-powered automation tools.",
       bullets: [
-        "React + Node/Express APIs",
-        "Auth & role-based access",
-        "Data modeling (MongoDB/Firebase)",
-        "Scalable, testable architecture",
+        "React + Node/Express or FastAPI",
+        "Authentication & role-based access",
+        "Data modeling (MongoDB, Firebase, SQL)",
+        "AI automation (OpenAI, LangChain)",
       ],
       meta: { timeline: "Scoped per project" },
     },
   ];
 
   const addons = [
-    { icon: FaMobileAlt, name: "PWA / Mobile Hardening" },
+    { icon: FaRobot, name: "AI Chatbots & Business Automation" },
+    { icon: FaMobileAlt, name: "Progressive Web Apps (PWA)" },
     { icon: FaSearch, name: "SEO & Content Strategy" },
-    { icon: FaCloud, name: "Cloud & DevOps Setup" },
+    { icon: FaCloud, name: "Cloud & DevOps Setup (Netlify, Render, GCS)" },
+    { icon: FaChartLine, name: "Analytics & Conversion Optimization" },
+    { icon: FaShieldAlt, name: "Security Reviews & Accessibility Audits" },
     { icon: FaTools, name: "Maintenance & Care Plans" },
-    { icon: FaChartLine, name: "Analytics & Conversion" },
-    { icon: FaShieldAlt, name: "Security Reviews" },
   ];
 
   const steps = [
     {
       icon: FaHandshake,
       title: "1) Discover",
-      text: "Understand goals, users, and constraints. Clear scope, clear success.",
+      text: "Define goals, users, and success metrics.",
     },
     {
       icon: FaClipboardCheck,
       title: "2) Design",
-      text: "Wireframes & UI decisions aligned to your brand and accessibility.",
+      text: "Wireframes & UI aligned to your brand and accessibility.",
     },
     {
       icon: FaCode,
       title: "3) Build",
-      text: "Iterative development with frequent previews and feedback loops.",
+      text: "Agile development with transparent previews.",
     },
     {
       icon: FaRocket,
       title: "4) Launch",
-      text: "Deploy, harden, monitor, and measure. Smooth handoff with docs.",
+      text: "Secure deployment, performance audits, and docs for handoff.",
     },
   ];
 
@@ -132,8 +136,8 @@ export default function ServicesPage() {
       <SEOHead
         title="Services | Boswell Digital Solutions LLC"
         description="Custom React websites, business sites, eCommerce, and bespoke digital solutions. Veteran-owned, Lexington KY. Accessibility-first, SEO-ready, and performance focused."
-        keywords="web development services, react developer, ecommerce development, custom web app, lexington ky"
-        url="https://boswellwebdevelopment.com/services"
+        keywords="digital solutions services, react developer, ecommerce development, custom web app, lexington ky"
+        url="https://boswelldigitalsolutions.com/services"
       />
 
       <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-black text-white">
@@ -157,8 +161,7 @@ export default function ServicesPage() {
               variants={item}
               className="text-lg text-gray-300 max-w-2xl mx-auto"
             >
-              Veteran-owned studio crafting custom, accessible, and fast
-              websites—from idea to launch and beyond.
+              Veteran-owned web studio building fast, secure, and intelligent websites — from idea to impact.
             </motion.p>
 
             <motion.div variants={item} className="mt-8 flex gap-4 justify-center">
@@ -315,9 +318,8 @@ export default function ServicesPage() {
                     Veteran Standards. Built to Last.
                   </h3>
                   <p className="text-gray-300">
-                    We design for performance, security, and accessibility—then
-                    prove it with audits and real metrics. Clear communication,
-                    dependable delivery, and support after launch.
+                    We design for performance, security, and accessibility — then prove it with real metrics.
+                    Clear communication, dependable delivery, and support that continues after launch.
                   </p>
                 </div>
               </div>

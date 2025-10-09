@@ -173,11 +173,11 @@ This project is licensed under the [MIT License](../../../../Downloads/LICENSE).
 
 ## Contact
 
-Charles Boswell – [charlesboswell@boswellwebdevelopment.com](mailto:charlesboswell@boswellwebdevelopment.com)  
-GitHub: [https://github.com/Boswecw](https://github.com/Boswecw)
+Charles Boswell – [charlesboswell@boswelldigitalsolutions.com](mailto:charlesboswell@boswelldigitalsolutions.com)
+GitHub: [https://github.com/CharlesWBoswell](https://github.com/CharlesWBoswell)
 
 ---
 
-**Boswell Web Development Solutions LLC**  
-*Veteran-owned and AI-powered development studio*  
+**Boswell Digital Solutions LLC**
+*Veteran-owned and AI-powered development studio*
 Based in Lexington, KY

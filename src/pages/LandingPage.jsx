@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react"; // Not needed in React 17+
 import { motion } from "framer-motion";
 import {
   FaLinkedin,
@@ -44,8 +44,8 @@ export default function LandingPage() {
       <SEOHead
         title="Boswell Digital Solutions LLC - Custom React Websites | Lexington, KY"
         description="Veteran-owned digital solutions company in Lexington, KY. Custom React websites, AI integration, and business automation. Professional, reliable, military-grade precision."
-        keywords="web development lexington ky, react developer kentucky, veteran owned business, custom websites, AI integration, MERN stack, web design lexington"
-        url="https://boswellwebdevelopment.com"
+        keywords="digital solutions lexington ky, react developer kentucky, veteran owned business, custom websites, AI integration, MERN stack, web design lexington"
+        url="https://boswelldigitalsolutions.com"
       />
 
       <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-black text-white overflow-hidden relative">
@@ -74,7 +74,7 @@ export default function LandingPage() {
               <div className="relative">
                 <img
                   src="https://firebasestorage.googleapis.com/v0/b/endless-fire-467204-n2.firebasestorage.app/o/HeroBanner.webp?alt=media&token=166c48c7-919c-402e-9479-6e1583efba39"
-                  alt="Boswell Web Development — Hero Banner"
+                  alt="Boswell Digital Solutions — Hero Banner"
                   width="1600" // 👈 real width of your file
                   height="800" // 👈 real height of your file
                   className="mx-auto w-full max-w-5xl h-auto rounded-2xl shadow-2xl border border-blue-500/20"
@@ -147,7 +147,7 @@ export default function LandingPage() {
                 <FaLinkedin className="text-2xl" />
               </motion.a>
               <motion.a
-                href="https://github.com/Boswecw"
+                href="https://github.com/CharlesWBoswell"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.2, y: -5 }}
@@ -157,7 +157,7 @@ export default function LandingPage() {
                 <FaGithub className="text-2xl" />
               </motion.a>
               <motion.a
-                href="mailto:charlesboswell@boswellwebdevelopment.com"
+                href="mailto:charlesboswell@boswelldigitalsolutions.com"
                 onClick={() => trackSocialClick('Email')}
                 whileHover={{ scale: 1.1, color: "#ea4335" }}
                 whileTap={{ scale: 0.95 }}
@@ -354,10 +354,10 @@ export default function LandingPage() {
 
             <div className="text-center">
               <a
-                href="mailto:charlesboswell@boswellwebdevelopment.com"
+                href="mailto:charlesboswell@boswelldigitalsolutions.com"
                 className="text-blue-400 hover:text-blue-300 text-lg font-medium underline decoration-blue-400/50 hover:decoration-blue-300 transition-colors"
               >
-                charlesboswell@boswellwebdevelopment.com
+                charlesboswell@boswelldigitalsolutions.com
               </a>
             </div>
           </div>

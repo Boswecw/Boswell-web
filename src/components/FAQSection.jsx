@@ -117,7 +117,7 @@ export default function FAQSection() {
         >
           <p className="text-gray-400 mb-4">Still have questions?</p>
           <a
-            href="mailto:charlesboswell@boswellwebdevelopment.com"
+            href="mailto:charlesboswell@boswelldigitalsolutions.com"
             className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
           >
             Get in Touch

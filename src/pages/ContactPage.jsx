@@ -222,7 +222,7 @@ export default function ContactPage() {
       console.error("Form submission error:", err);
       setToast({
         type: "error",
-        msg: "Submit failed. Please check your connection and try again, or email charlesboswell@boswellwebdevelopment.com.",
+        msg: "Submit failed. Please check your connection and try again, or email charlesboswell@boswelldigitalsolutions.com.",
       });
       setTimeout(() => setToast({ type: null, msg: "" }), 6000);
     } finally {
@@ -246,8 +246,8 @@ export default function ContactPage() {
       <SEOHead
         title="Digital Solutions Pricing & Contact | Boswell Digital Solutions LLC"
         description="Custom React websites, business sites, eCommerce, and bespoke digital solutions. Transparent pricing and timelines. Veteran-owned in Lexington, Kentucky."
-        keywords="web development pricing, website quote lexington ky, react developer rates, ecommerce development, custom web app"
-        url="https://boswellwebdevelopment.com/contact"
+        keywords="digital solutions pricing, website quote lexington ky, react developer rates, ecommerce development, custom web app"
+        url="https://boswelldigitalsolutions.com/contact"
       />
 
       <div className="min-h-screen bg-gray-950 text-white">
@@ -524,11 +524,11 @@ export default function ContactPage() {
                     <div>
                       <p className="font-semibold">Email</p>
                       <a
-                        href="mailto:charlesboswell@boswellwebdevelopment.com"
+                        href="mailto:charlesboswell@boswelldigitalsolutions.com"
                         className="text-gray-300 hover:text-blue-400"
                         onClick={() => trackEmailClick()}
                       >
-                        charlesboswell@boswellwebdevelopment.com
+                        charlesboswell@boswelldigitalsolutions.com
                       </a>
                     </div>
                   </div>
