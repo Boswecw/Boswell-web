@@ -8,13 +8,16 @@ import {
   FaShieldAlt,
   FaCode,
   FaClock,
-  FaCheckCircle,
   FaChevronDown,
   FaChevronUp,
   FaExternalLinkAlt,
   FaStar,
   FaTimes,
+  FaCertificate,
 } from "react-icons/fa";
+import SEOHead from "@/components/SEOHead";
+import Navbar from "@/components/Navbar";
+import { trackSocialClick } from "@/utils/analytics";
 
 export default function ImprovedLandingPage() {
   const [openFaq, setOpenFaq] = useState(null);
@@ -88,52 +91,49 @@ export default function ImprovedLandingPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-black text-white overflow-hidden relative">
-      {/* Background Effects */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
-      </div>
+    <>
+      <SEOHead
+        title="Boswell Digital Solutions LLC | Veteran-Owned Web Development & AI Studio"
+        description="Veteran-owned digital solutions company in Lexington, KY. Custom React websites, AI integration, and business automation. Starting at $750."
+        keywords="digital solutions lexington ky, react developer kentucky, veteran owned business, custom websites, AI integration, MERN stack, web design lexington"
+        url="https://boswelldigitalsolutions.com"
+      />
 
-      {/* Launch Special Banner */}
-      <AnimatePresence>
-        {showBanner && (
-          <motion.div
-            initial={{ y: -100 }}
-            animate={{ y: 0 }}
-            exit={{ y: -100 }}
-            className="bg-gradient-to-r from-blue-600 to-purple-600 py-3 px-4 text-center relative z-50"
-          >
-            <div className="max-w-6xl mx-auto flex items-center justify-between">
-              <div className="flex-1 text-sm md:text-base font-semibold">
-                🚀 <span className="text-yellow-200">LAUNCH SPECIAL:</span> 50% Off Starter Packages - Building Our Lexington Portfolio • Limited Slots Available
-              </div>
-              <button
-                onClick={() => setShowBanner(false)}
-                className="ml-4 text-white hover:text-gray-200"
-              >
-                <FaTimes />
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <Navbar />
 
-      {/* Navbar */}
-      <nav className="py-4 px-6 relative z-40 bg-gray-900/50 backdrop-blur-sm">
-        <div className="max-w-6xl mx-auto flex justify-between items-center">
-          <div className="text-xl font-bold">Boswell Digital</div>
-          <div className="flex gap-6 text-sm">
-            <a href="#services" className="hover:text-blue-400 transition">Services</a>
-            <a href="#portfolio" className="hover:text-blue-400 transition">Portfolio</a>
-            <a href="#faq" className="hover:text-blue-400 transition">FAQ</a>
-            <a href="#contact" className="hover:text-blue-400 transition">Contact</a>
-          </div>
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-black text-white overflow-hidden relative">
+        {/* Background Effects */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
         </div>
-      </nav>
+
+        {/* Launch Special Banner */}
+        <AnimatePresence>
+          {showBanner && (
+            <motion.div
+              initial={{ y: -100 }}
+              animate={{ y: 0 }}
+              exit={{ y: -100 }}
+              className="bg-gradient-to-r from-blue-600 to-purple-600 py-3 px-4 text-center relative z-50"
+            >
+              <div className="max-w-6xl mx-auto flex items-center justify-between">
+                <div className="flex-1 text-sm md:text-base font-semibold">
+                  🚀 <span className="text-yellow-200">LAUNCH SPECIAL:</span> 50% Off Starter Packages - Building Our Lexington Portfolio • Limited Slots Available
+                </div>
+                <button
+                  onClick={() => setShowBanner(false)}
+                  className="ml-4 text-white hover:text-gray-200"
+                >
+                  <FaTimes />
+                </button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
       {/* Hero Section */}
-      <section className="px-6 py-12 md:py-16 relative z-10">
+      <section className="px-6 py-12 md:py-16 pt-24 relative z-10">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -443,12 +443,13 @@ export default function ImprovedLandingPage() {
             </a>
           </div>
 
-          <div className="flex justify-center gap-6">
+          <div className="flex justify-center gap-6 mb-8">
             <a
               href="https://www.linkedin.com/in/kywebdevboswell/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-blue-400 transition p-3 bg-gray-800/30 rounded-full"
+              className="text-gray-300 hover:text-blue-400 transition p-3 bg-gray-800/30 rounded-full border border-gray-700 hover:border-blue-400"
+              onClick={() => trackSocialClick('LinkedIn')}
             >
               <FaLinkedin className="text-2xl" />
             </a>
@@ -456,10 +457,26 @@ export default function ImprovedLandingPage() {
               href="https://github.com/CharlesWBoswell"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-white transition p-3 bg-gray-800/30 rounded-full"
+              className="text-gray-300 hover:text-white transition p-3 bg-gray-800/30 rounded-full border border-gray-700 hover:border-white"
+              onClick={() => trackSocialClick('GitHub')}
             >
               <FaGithub className="text-2xl" />
             </a>
+            <a
+              href="mailto:charlesboswell@boswelldigitalsolutions.com"
+              onClick={() => trackSocialClick('Email')}
+              className="text-gray-300 hover:text-red-400 transition p-3 bg-gray-800/30 rounded-full border border-gray-700 hover:border-red-400"
+            >
+              <FaEnvelope className="text-2xl" />
+            </a>
+          </div>
+
+          {/* Cert line */}
+          <div className="flex justify-center items-center gap-3 text-gray-400">
+            <FaCertificate className="text-yellow-400 text-lg" />
+            <span className="text-sm md:text-base">
+              Veteran-Owned Business • Lexington, Kentucky
+            </span>
           </div>
         </motion.div>
       </section>
@@ -471,6 +488,7 @@ export default function ImprovedLandingPage() {
           Veteran-Owned • 20+ Years Professional Leadership • Newly Serving Lexington, KY & Beyond • Built with React + ❤️
         </p>
       </footer>
-    </div>
+      </div>
+    </>
   );
 }
