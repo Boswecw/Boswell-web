@@ -80,7 +80,7 @@ export default function ImprovedLandingPage() {
       title: "Livy History Tour App",
       description: "Production PWA with GPS navigation, offline capabilities, AI Q&A, and Firebase real-time sync",
       tech: "React • Firebase • OpenAI • PWA",
-      image: "https://images.unsplash.com/photo-1569074187119-c87815b476da?w=600&h=400&fit=crop",
+      image: "https://firebasestorage.googleapis.com/v0/b/endless-fire-467204-n2.firebasestorage.app/o/The%20old%20downtown%20Lexington_.jpg?alt=media&token=ea8bd943-92f9-4ac3-bfa7-f96229a26561",
     },
     {
       title: "Leopold Nature Tracker",
