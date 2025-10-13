@@ -81,7 +81,10 @@ A modern, responsive portfolio website built with React and Vite, showcasing dig
 
 ```
 public/
-├── favicon.png            # Company logo/icon (32x32)
+├── favicon.ico            # Company favicon (main)
+├── favicon-32x32.png      # Company favicon (32x32)
+├── favicon-16x16.png      # Company favicon (16x16)
+├── apple-touch-icon.png   # iOS home screen icon
 └── resume.html           # Interactive HTML resume
 src/
 ├── components/
